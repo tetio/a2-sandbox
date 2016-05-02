@@ -21,4 +21,8 @@ export class LorryComponent {
             lorryMovements => this.lorryMovements = lorryMovements,
             error => this.errorMessage = <any>error);
     }
+    
+    closeMovement(movement) {
+        console.log(`Lorry movement to close = [${movement.idMov}]`);
+    }
 }

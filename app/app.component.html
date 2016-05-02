@@ -11,8 +11,8 @@
 	</div>∫
 </header>
 <ul class="nav nav-tabs">
-	<li [class.active]="isLorryMode()"><a data-toggle="tab" [routerLink]="['Lorry']">CAMIÓN</a></li>
-	<li [class.active]="isTrainMode()"><a data-toggle="tab" [routerLink]="['Train']">TREN</a></li>
+	<li [class.active]="isLorryMode()" (click)="setLorryMode()"><a data-toggle="tab" [routerLink]="['Lorry']">CAMIÓN</a></li>
+	<li [class.active]="isTrainMode()" (click)="setTrainMode()"><a data-toggle="tab" [routerLink]="['Train']">TREN</a></li>
 </ul>
 <section>
 	<div class="page-content">

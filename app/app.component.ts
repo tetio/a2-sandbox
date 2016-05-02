@@ -32,12 +32,23 @@ export class AppComponent {
 		{ caption: 'TREN', link: ['Train'] },
 		{ caption: 'CAMIÓN', link: ['Lorry'] }
 	];
+	lorryMode: boolean = true;
+	trainMode: boolean = false;
 
 
 	isLorryMode() {
-		return false;
+		return this.lorryMode;
 	}
-	idTrainMode() {
-		return true;
+	isTrainMode() {
+		return this.trainMode;
 	}
+	
+	setLorryMode() {
+		this.lorryMode = true;
+		this.trainMode = false;
+	}
+	setTrainMode() {
+		this.lorryMode = false;
+		this.trainMode = true;
+	}	
 }
