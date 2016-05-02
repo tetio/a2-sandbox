@@ -11,8 +11,8 @@ export class LorryService {
     
     constructor(private _http: Http) {}
     
-    getLorryMovements() : Observable<ILorryMovement[]> {
-        return this._http.get(this._lorryMovementsUrl)
+    getLorryMovements(payload) : Observable<ILorryMovement[]> {
+        return this._http.post(this._lorryMovementsUrl, JSON.stringify(payload))
             .map((response: Response) => <ILorryMovement[]>response.json())
             .catch(this.handleError)
     }

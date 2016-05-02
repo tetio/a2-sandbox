@@ -12,7 +12,8 @@ import {LorryService} from './lorry.service';
 export class LorryComponent {
     lorryMovements: ILorryMovement[];
     errorMessage: string;
-    currentItem: string;
+    currentItem: string = "1";
+    equipId: string;
     private values = [
         {
             key: "1",
@@ -27,7 +28,12 @@ export class LorryComponent {
     constructor(private _lorryService: LorryService) { }
 
     search() {
-        this._lorryService.getLorryMovements()
+        let payload = {
+            pagina: 1,
+            tipoSelect: this.currentItem,
+            contenedor: this.equipId    
+        };
+        this._lorryService.getLorryMovements(payload)
             .subscribe(
             lorryMovements => this.lorryMovements = lorryMovements,
             error => this.errorMessage = <any>error);
