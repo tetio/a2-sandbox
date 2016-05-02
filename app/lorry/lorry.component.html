@@ -4,10 +4,13 @@
     <form class="search_truck">
         <div class="content_inputs_aplication">
             <label class="label_aplication_truck">tipo:</label>
-            <select class="select">
+            <!--<select class="select">
                 <option value="" selected="SALIDA">SALIDA</option>
                 <option value="ENTRADA">ENTRADA</option>
-            </select>
+            </select>-->
+            <select class="select" (change)="onItemChange($event.target.value)">
+                <option *ngFor="#value of values" value="{{value.key}}">{{value.value}}</option>
+            </select>            
         </div>
         <div class="content_inputs_aplication">
             <label class="label_aplication_truck">Contenedor:</label>
@@ -20,6 +23,7 @@
             <tr>
                 <th>Tipo Movimiento</th>
                 <th>Contenedor</th>
+                <th>Tipo</th>
                 <th>Camión</th>
                 <th>Ubicación</th>
                 <th>Finalizar</th>
@@ -29,6 +33,7 @@
             <tr>
                 <td>{{movement.camionOGrua}}</td>
                 <td>{{movement.contenedor}}</td>
+                <td>{{movement.tipoContenedor}}</td>
                 <td>{{movement.camion}}</td>
                 <td>{{movement.ubicacion}}</td>
                 <td> <button type="button" (click)="closeMovement(movement)">FINALIZAR</button></td>

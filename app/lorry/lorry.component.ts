@@ -12,17 +12,34 @@ import {LorryService} from './lorry.service';
 export class LorryComponent {
     lorryMovements: ILorryMovement[];
     errorMessage: string;
-
-    constructor(private _lorryService: LorryService) {}
+    currentItem: string;
+    private values = [
+        {
+            key: "1",
+            value: "ENTRADA"
+        },
+        {
+            key: "2",
+            value: "SALIDA"
+        }
+    ]
+    
+    constructor(private _lorryService: LorryService) { }
 
     search() {
         this._lorryService.getLorryMovements()
-        .subscribe(
+            .subscribe(
             lorryMovements => this.lorryMovements = lorryMovements,
             error => this.errorMessage = <any>error);
     }
-    
+
     closeMovement(movement) {
         console.log(`Lorry movement to close = [${movement.idMov}]`);
+    }
+    
+    onItemChange(currentItem) {
+        this.currentItem = currentItem;
+        // currentItem sempres està un per devant al index de l'array de valors
+        console.log(`selected = [${this.values[currentItem-1].value}]`);
     }
 }
