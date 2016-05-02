@@ -5,38 +5,39 @@ import { ROUTER_PROVIDERS, RouteConfig, ROUTER_DIRECTIVES } from 'angular2/route
 
 import { ProductListComponent } from './products/product-list.component';
 import { ProductService } from './products/product.service';
+import { LorryService } from './lorry/lorry.service';
+import { TrainService } from './train/train.service';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProductDetailComponent } from './products/product-detail.component';
+import { LorryComponent } from './lorry/lorry.component'
+import { TrainComponent } from './train/train.component'
+
 
 @Component({
     selector: 'pm-app',
-    template: `
-    <div>
-        <nav class='navbar navbar-default'>
-            <div class='container-fluid'>
-                <a class='navbar-brand'>{{pageTitle}}</a>
-                <ul class='nav navbar-nav'>
-                    <li><a [routerLink]="['Welcome']">Home</a></li>
-                    <li><a [routerLink]="['Products']">Product List</a></li>
-                </ul>
-            </div>
-        </nav>
-        <div class='container'>
-            <router-outlet></router-outlet>
-        </div>
-     </div>
-    ` ,
+    templateUrl: 'app/app.component.html',
     directives: [ROUTER_DIRECTIVES],
-    providers: [ProductService,
-                HTTP_PROVIDERS,
-                ROUTER_PROVIDERS]
+    providers: [LorryService,
+		TrainService,
+        HTTP_PROVIDERS,
+        ROUTER_PROVIDERS]
 })
 @RouteConfig([
-  { path: '/welcome', name: 'Welcome', component: WelcomeComponent, useAsDefault: true },
-  { path: '/products', name: 'Products', component: ProductListComponent },
-  { path: '/product/:id', name: 'ProductDetail', component: ProductDetailComponent }
-  { path: '/lorry', name: 'Lorry', component: LorryComponent }    
+    { path: '/lorry', name: 'Lorry', component: LorryComponent, useAsDefault: true },
+    { path: '/train', name: 'Train', component: TrainComponent }
 ])
 export class AppComponent {
-    pageTitle: string = 'Acme Product Management';
+    pageTitle: string = 'Gestión de entradas y salidas';
+	public menuItems = [
+		{ caption: 'TREN', link: ['Train'] },
+		{ caption: 'CAMIÓN', link: ['Lorry'] }
+	];
+
+
+	isLorryMode() {
+		return false;
+	}
+	idTrainMode() {
+		return true;
+	}
 }

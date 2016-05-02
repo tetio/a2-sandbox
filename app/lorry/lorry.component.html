@@ -1,0 +1,40 @@
+<!--div class="tab-content">
+    <section class="section_aplication tab-pane fade in active" id="camion"-->
+<div>
+    <form class="search_truck">
+        <div class="content_inputs_aplication">
+            <label class="label_aplication_truck">tipo:</label>
+            <select class="select">
+                <option value="" selected="SALIDA">SALIDA</option>
+                <option value="ENTRADA">ENTRADA</option>
+            </select>
+        </div>
+        <div class="content_inputs_aplication">
+            <label class="label_aplication_truck">Contenedor:</label>
+            <input type="text" class="input_aplication_truck">
+        </div>
+        <input type="submit" class="form_btn btn_margin_left" value="BUSCAR" (click)="search()">
+    </form>
+    <table class="table table-striped table-bordered"  *ngIf="lorryMovements">
+        <thead>
+            <tr>
+                <th>Tipo Movimiento</th>
+                <th>Contenedor</th>
+                <th>Camión</th>
+                <th>Ubicación</th>
+                <th>Finalizar</th>
+            </tr>
+        </thead>
+        <tbody *ngFor="#movement of lorryMovements">
+            <tr>
+                <td>{{movement.camionOGrua}}</td>
+                <td>{{movement.contenedor}}</td>
+                <td>{{movement.camion}}</td>
+                <td>{{movement.ubicacion}}</td>
+                <td> <button type="button">FINALIZAR</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<!--/section>
+</div-->

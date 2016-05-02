@@ -1,0 +1,21 @@
+<header class="aplication_header">
+	<div style="display:flex; align-items:center;">
+		<img src="img/logo.png" class="aplication_logo">
+		<h2 class="aplication_title">PORTIC TERMINALES INTERIORES</h2>
+	</div>
+	<div style="display:flex">
+		<p class="user_company">Ususario:</p>
+		<p class="aplication_logo">Paco</p>
+		<p class="user_company">Empresa:</p>
+		<p class="aplication_logo">Azuqueca de...</p>
+	</div>∫
+</header>
+<ul class="nav nav-tabs">
+	<li [class.active]="isLorryMode()"><a data-toggle="tab" [routerLink]="['Lorry']">CAMIÓN</a></li>
+	<li [class.active]="isTrainMode()"><a data-toggle="tab" [routerLink]="['Train']">TREN</a></li>
+</ul>
+<section>
+	<div class="page-content">
+		<router-outlet></router-outlet>
+	</div>
+</section>

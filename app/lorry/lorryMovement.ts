@@ -14,5 +14,5 @@ export interface ILorryMovement {
       descEstado: string,
       creadoManualmenteFlag: boolean,
       bTieneIncidencias: boolean,
-      incidenciasKeys: String[]    
+ //     incidenciasKeys: String[]
 }

@@ -1,0 +1,34 @@
+[
+    {
+        "camionOGrua": 1,
+        "idMov": 1,
+        "camion": "8888 HHH",
+        "transportistaNombre": "Fulanito",
+        "contenedor": "GDN-0011",
+        "tipoContenedor": 1,
+        "movimiento": "GDN-0011",
+        "llenoVacio": 1,
+        "ubicacion": "Leaf rake with 48-inch wooden handle.",
+        "mmpp": false,
+        "estado": "Leaf rake with 48-inch wooden handle.",
+        "descEstado": "Leaf rake with 48-inch wooden handle.",
+        "creadoManualmenteFlag": false,
+        "bTieneIncidencias": false
+    },
+    {
+        "camionOGrua": 1,
+        "idMov": 1,
+        "camion": "2222 HHH",
+        "transportistaNombre": "Menganito",
+        "contenedor": "GDN-0011",
+        "tipoContenedor": 1,
+        "movimiento": "GDN-0011",
+        "llenoVacio": 1,
+        "ubicacion": "Leaf rake with 48-inch wooden handle.",
+        "mmpp": false,
+        "estado": "Leaf rake with 48-inch wooden handle.",
+        "descEstado": "Leaf rake with 48-inch wooden handle.",
+        "creadoManualmenteFlag": false,
+        "bTieneIncidencias": false
+    }
+]
