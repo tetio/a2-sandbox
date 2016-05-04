@@ -4,7 +4,6 @@ import {ILorryMovement} from './lorryMovement';
 import {LorryService} from './lorry.service';
 import { Payload } from '../payload/payload';
 
-
 @Component({
     selector: 'lorry-tab',
     templateUrl: 'app/lorry/lorry.component.html',
@@ -12,6 +11,7 @@ import { Payload } from '../payload/payload';
 })
 export class LorryComponent {
     lorryMovements: ILorryMovement[];
+    notFoundMessage: boolean = false;
     errorMessage: string;
     currentItem: string = "1";
     equipId: string;
@@ -25,7 +25,7 @@ export class LorryComponent {
             value: "SALIDA"
         }
     ]
-    
+
     constructor(private _lorryService: LorryService) { }
 
     search() {
@@ -35,22 +35,29 @@ export class LorryComponent {
         payload["paisSessio"] = "ES";// TODO: To be replaced with session data
         payload["pagina"] = "1";
         payload["tipoSelect"] = this.currentItem;
-        if (this.equipId ) {
+        if (this.equipId) {
             payload["contenedor"] = this.equipId;
         }
         this._lorryService.getLorryMovements(payload)
             .subscribe(
-            lorryMovements => this.lorryMovements = lorryMovements,
-            error => this.errorMessage = <any>error);
+                lorryMovements => this.movementsReceived(lorryMovements), 
+                error => this.errorMessage = <any>error
+            ); 
+    }
+
+    movementsReceived(lorryMovements: ILorryMovement[]) {
+        this.lorryMovements = lorryMovements;
+        this.notFoundMessage = (lorryMovements.length == 0);
+
     }
 
     closeMovement(movement) {
         console.log(`Lorry movement to close = [${movement.idMov}]`);
     }
-    
+
     onItemChange(currentItem) {
         this.currentItem = currentItem;
         // currentItem sempres està un per devant al index de l'array de valors
-        console.log(`selected = [${this.values[currentItem-1].value}]`);
+        console.log(`selected = [${this.values[currentItem - 1].value}]`);
     }
 }

@@ -28,7 +28,7 @@ export class Config {
 
             default:
                 data = {
-                    endPoint: ''
+                    endPoint: 'http://'+environment+':8181'
                 };
         }
         return data[value];
