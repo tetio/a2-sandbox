@@ -2,6 +2,7 @@ import { Component, OnInit } from 'angular2/core';
 import { ROUTER_DIRECTIVES } from 'angular2/router';
 import {ILorryMovement} from './lorryMovement';
 import {LorryService} from './lorry.service';
+import { Payload } from '../payload/payload';
 
 
 @Component({
@@ -28,11 +29,15 @@ export class LorryComponent {
     constructor(private _lorryService: LorryService) { }
 
     search() {
-        let payload = {
-            pagina: 1,
-            tipoSelect: this.currentItem,
-            contenedor: this.equipId    
-        };
+        var payload = new Payload<string>();
+        payload["usuariSessio"] = "QATI";// TODO: To be replaced with session data
+        payload["nifSessio"] = "Q99999999";// TODO: To be replaced with session data
+        payload["paisSessio"] = "ES";// TODO: To be replaced with session data
+        payload["pagina"] = "1";
+        payload["tipoSelect"] = this.currentItem;
+        if (this.equipId ) {
+            payload["contenedor"] = this.equipId;
+        }
         this._lorryService.getLorryMovements(payload)
             .subscribe(
             lorryMovements => this.lorryMovements = lorryMovements,
