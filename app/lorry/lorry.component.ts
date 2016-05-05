@@ -4,11 +4,13 @@ import {ILorryMovement} from './lorryMovement';
 import {LorryService} from './lorry.service';
 import { SecurityService } from '../security/security.service';
 import { Payload } from '../payload/payload';
+import { SpinnerComponent } from '../shared/spinner/spinner.component';
 
 @Component({
     selector: 'lorry-tab',
     templateUrl: 'app/lorry/lorry.component.html',
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES, 
+        SpinnerComponent]
 })
 export class LorryComponent {
     lorryMovements: ILorryMovement[];
@@ -16,6 +18,8 @@ export class LorryComponent {
     errorMessage: string;
     currentItem: string = "1";
     equipId: string;
+    public isRequesting: boolean;
+    
     private values = [
         {
             key: "1",
@@ -30,6 +34,8 @@ export class LorryComponent {
     constructor(private _lorryService: LorryService, private _securityService: SecurityService) { }
 
     search() {
+        this.isRequesting = true;
+        this.lorryMovements = [];        
         var payload = new Payload<string>();
         payload["usuariSessio"] = this._securityService.session.usuari;
         payload["nifSessio"] =  this._securityService.session.nif;
@@ -43,7 +49,8 @@ export class LorryComponent {
         this._lorryService.getLorryMovements(payload)
             .subscribe(
                 lorryMovements => this.movementsReceived(lorryMovements), 
-                error => this.errorMessage = <any>error
+                error => this.errorMessage = <any>error,
+                () => this.stopRefreshing()
             ); 
     }
 
@@ -62,4 +69,8 @@ export class LorryComponent {
         // currentItem sempres està un per devant al index de l'array de valors
         console.log(`selected = [${this.values[currentItem - 1].value}]`);
     }
+    
+    private stopRefreshing() {
+        this.isRequesting = false;
+    }    
 }
