@@ -1,21 +1,39 @@
-<header class="aplication_header">
-	<div style="display:flex; align-items:center;">
-		<img src="img/logo.png" class="aplication_logo">
-		<h2 class="aplication_title">PORTIC TERMINALES INTERIORES</h2>
+<section class="section" *ngIf(!isLoggedIn())>
+	<div class="header">
+		<img src="img/logo portic 20x08.jpg" class="logo">
+		<h1 class="title">PORTIC TERMINALES INTERIORES</h1>
+		<div class="form">
+			<form action="aplication.html">
+				<label>Nombre*</label>
+				<input type="text" class="form_input" [(ngModel)]="username" required>
+				<label>Password*</label>
+				<input type="password" class="form_input" [(ngModel)]="password" required>
+				<input type="submit" class="form_btn" value="ENTRAR" (click)="logIn()">
+			</form>
+		</div>
+
 	</div>
-	<div style="display:flex">
-		<p class="user_company">Ususario:</p>
-		<p class="aplication_logo">Paco</p>
-		<p class="user_company">Empresa:</p>
-		<p class="aplication_logo">Azuqueca de...</p>
-	</div>
-</header>
-<ul class="nav nav-tabs">
-	<li [class.active]="isLorryMode()" (click)="setLorryMode()"><a data-toggle="tab" [routerLink]="['Lorry']">CAMIÓN</a></li>
-	<li [class.active]="isTrainMode()" (click)="setTrainMode()"><a data-toggle="tab" [routerLink]="['Train']">TREN</a></li>
-</ul>
-<section>
-	<div class="page-content">
-		<router-outlet></router-outlet>
-	</div>
+</section>
+<section class="section" *ngIf(isLoggedIn())>
+	<header class="aplication_header">
+		<div style="display:flex; align-items:center;">
+			<img src="img/logo.png" class="aplication_logo">
+			<h2 class="aplication_title">PORTIC TERMINALES INTERIORES</h2>
+		</div>
+		<div style="display:flex">
+			<p class="user_company">Ususario:</p>
+			<p class="aplication_logo">{{_securityService.session.nomUsuari}}</p>
+			<p class="user_company">Empresa:</p>
+			<p class="aplication_logo">{{_securityService.session.nomEmpresa}}</p>
+		</div>
+	</header>
+	<ul class="nav nav-tabs">
+		<li [class.active]="isLorryMode()" (click)="setLorryMode()"><a data-toggle="tab" [routerLink]="['Lorry']">CAMIÓN</a></li>
+		<li [class.active]="isTrainMode()" (click)="setTrainMode()"><a data-toggle="tab" [routerLink]="['Train']">TREN</a></li>
+	</ul>
+	<section>
+		<div class="page-content">
+			<router-outlet></router-outlet>
+		</div>
+	</section>
 </section>

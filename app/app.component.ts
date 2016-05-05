@@ -7,10 +7,12 @@ import { ProductListComponent } from './products/product-list.component';
 import { ProductService } from './products/product.service';
 import { LorryService } from './lorry/lorry.service';
 import { TrainService } from './train/train.service';
+import { SecurityService } from './security/security.service';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProductDetailComponent } from './products/product-detail.component';
 import { LorryComponent } from './lorry/lorry.component'
 import { TrainComponent } from './train/train.component'
+import { Payload } from './payload/payload';
 
 
 @Component({
@@ -19,6 +21,7 @@ import { TrainComponent } from './train/train.component'
     directives: [ROUTER_DIRECTIVES],
     providers: [LorryService,
 		TrainService,
+		SecurityService,
         HTTP_PROVIDERS,
         ROUTER_PROVIDERS]
 })
@@ -34,8 +37,17 @@ export class AppComponent {
 	];
 	lorryMode: boolean = true;
 	trainMode: boolean = false;
+	loggedIn: boolean = false;
+	username: string;
+	password: string;
+	errorMessage: string;
+	
+	
+	constructor(private _securityService: SecurityService) {}
 
-
+	isLoggedIn(): boolean {
+		return this.loggedIn;
+	}
 	isLorryMode() {
 		return this.lorryMode;
 	}
@@ -51,4 +63,23 @@ export class AppComponent {
 		this.lorryMode = false;
 		this.trainMode = true;
 	}	
+	
+	logIn() {
+		var payload = new Payload<string>();
+        payload["username"] = this.username;
+        payload["password"] = this.password;
+		this._securityService.login(payload)
+			.subscribe(
+		// TODO: Check with secutity service
+				session => {
+					if (session.codiError >= 0 && session.token) {
+						this.loggedIn = true;
+						this._securityService.session = session;
+					} else {
+						// TODO avisar que no s'ha autenticat correctament
+					}
+				},
+				error => this.errorMessage = error
+			);
+	}
 }

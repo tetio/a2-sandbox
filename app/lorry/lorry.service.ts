@@ -1,20 +1,20 @@
 import {Injectable} from 'angular2/core';
-import {ILorryMovement} from './lorryMovement'
 import {Http, Response} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
-import {Jsonp, URLSearchParams} from '@angular/http';
 import { Config } from "../config/config"
 import { Payload } from '../payload/payload';
-
+import { Service } from '../payload/service';
+import { ILorryMovement } from './lorryMovement'
 
 @Injectable()
-export class LorryService {
+export class LorryService extends Service {
     //private _lorryMovementsUrl = 'api/lorry/lorry-list.json'
     private _lorryMovementsUrl = Config.getEnvironmentVariable('endPoint') + '/webTermint/api/lorryQuery'
     private _lorryMovementConfirmationsUrl = 'api/lorry/lorry-confirmation.json'
 
-
-    constructor(private _http: Http) { }
+    constructor( _http: Http) { 
+        super(_http);
+    }
 
     getLorryMovements(payload): Observable<ILorryMovement[]> {
         let queryString = this.generateQueryString(payload);
@@ -30,38 +30,4 @@ export class LorryService {
             .catch(this.handleError)
     }
 
-    private handleError(error: Response) {
-        console.error(error);
-        return Observable.throw(error.json().error || 'Server error');
-    }
-
-
-    generateQueryString(payload: Payload<string>): string {
-        var qs = "";
-        var prefix = "?";
-        for (var key in payload) {
-            qs += prefix + key + "=" + payload[key];
-            prefix = "&"
-        }
-        // var qs = "?";
-        // if (payload.tipoSelect) {
-        //     qs += "tipoSelect=" + payload.tipoSelect            
-        // }
-        // if (payload.contenedor) {
-        //     qs += "&contenedor=" + payload.contenedor            
-        // }
-        // if (payload.paisSessio) {
-        //     qs += "&paisSessio=" + payload.paisSessio            
-        // }
-        // if (payload.nifSessio) {
-        //     qs += "&nifSessio=" + payload.nifSessio            
-        // }
-        // if (payload.usuariSessio) {
-        //     qs += "&usuariSessio=" + payload.usuariSessio            
-        // }
-        // if (payload.token) {
-        //     qs += "&token=" + payload.token            
-        // }
-        return qs;
-    }
 }
