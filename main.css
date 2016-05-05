@@ -1,15 +1,13 @@
 @charset "utf-8";
 
-
-
 html, body {
 	margin:0 auto;
-	font-size: 16px;
+	font-size: 16px;	
 	font-family: 'Raleway', sans-serif;
-	text-align: center;
-	font-weight: 500;
+	text-align: center;	
+	font-weight: 500;	
 	color:#000;
-	height: 100%;
+	height: 100%;	
 }
 
 h1, h2, p{
@@ -23,16 +21,16 @@ h1, h2, p{
 }
 
 
-.header{
-    max-width: 1024px;
-    width: auto;
-    position: relative;
-    left: 50%;
-    top: 50%;
-    align-items:flex-end;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
+.header{	
+	max-width: 1024px;
+	width: auto;    
+	position: relative;
+	left: 50%;
+	top: 50%;
+	align-items:flex-end;
+	-ms-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
 }
 
 .form{
@@ -41,7 +39,7 @@ h1, h2, p{
 	width: 60%;
 	margin: 0 auto;
 	margin-top: 50px;
-	text-align: left;
+	text-align: left;	
 }
 
 .form_input{
@@ -70,14 +68,14 @@ h1, h2, p{
 	-moz-border-radius: 10px;
 	border-radius: 10px;
 	-webkit-transition: all 0.5s ease;
-    -moz-transition:all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all 0.5s ease;
+	-moz-transition:all 0.5s ease;
+	-o-transition: all 0.5s ease;
+	transition: all 0.5s ease;
 }
 
-.form_btn:hover{
+.form_btn:hover{	
 	background-color: #adc8e7;
-	color:#000;
+	color:#000;	
 }
 
 .logo{
@@ -95,15 +93,15 @@ h1, h2, p{
 	justify-content: space-between;
 	align-items:center;
 	flex-wrap: wrap;
-	background-color: #356294;
+	background-color: #356294;	
 	width: 100%;
 	-webkit-box-shadow: 0px 8px 22px -11px rgba(0,0,0,0.75);
--moz-box-shadow: 0px 8px 22px -11px rgba(0,0,0,0.75);
-box-shadow: 0px 8px 22px -11px rgba(0,0,0,0.75);
+	-moz-box-shadow: 0px 8px 22px -11px rgba(0,0,0,0.75);
+	box-shadow: 0px 8px 22px -11px rgba(0,0,0,0.75);
 }
 
 .aplication_title{
-	color:#fff;
+	color:#fff;	
 	font-size: 14px;
 	margin-right: 20px;
 }
@@ -118,7 +116,7 @@ box-shadow: 0px 8px 22px -11px rgba(0,0,0,0.75);
 	margin-right: 10px;
 }
 
-.section_aplication{
+.section_aplication{	
 	padding: 0px 1em;
 	box-sizing: border-box;
 	text-align: left;
@@ -127,14 +125,14 @@ box-shadow: 0px 8px 22px -11px rgba(0,0,0,0.75);
 .search_truck, .search_train, .result_train_selected{
 	display: flex;
 	flex-direction: row;
-    align-items: flex-start;
+	align-items: flex-start;	
 	justify-content: center;
 	flex-wrap: wrap;
 	margin-bottom: 20px;
-    padding: 20px;
-    background-color: #beced7;
-    border-bottom: 1px solid #ddd;
-
+	padding: 20px;
+	background-color: #beced7;
+	border-bottom: 1px solid #ddd;
+	
 }
 
 .result_train_selected{
@@ -147,7 +145,7 @@ box-shadow: 0px 8px 22px -11px rgba(0,0,0,0.75);
 
 
 .select{
-	display: inline-block;
+	display: inline-block;	
 	width: 60%;
 	height: 40px;
 	border: 1px solid #356294;
@@ -162,12 +160,12 @@ box-shadow: 0px 8px 22px -11px rgba(0,0,0,0.75);
 }
 
 .label_aplication_truck, .label_aplication_train{
-	display: inline-block;
-    font-weight: 500;
-    line-height: 75px;
+	display: block;
+	font-weight: 500;
+	line-height: 15px;  
 }
 
-.input_aplication_truck, .input_aplication_train{
+.input_aplication_truck, .input_aplication_train{		
 	width: 60%;
 	height: 40px;
 	border: 1px solid #356294;
@@ -184,7 +182,7 @@ box-shadow: 0px 8px 22px -11px rgba(0,0,0,0.75);
 .input_zone{
 	width: 70%;
 	height: 30px;
-	border: 1px solid #356294;
+	border: 1px solid #356294;	
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
@@ -209,29 +207,20 @@ box-shadow: 0px 8px 22px -11px rgba(0,0,0,0.75);
 
 }
 
-
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
-	background-color: #beced7;
-    font-weight: 700;
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{	
+	background-color: #beced7;    
+	font-weight: 700;
 }
 
-
-.nav-tabs>li.active>a:, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
-	background-color: #beced7;
-    font-weight: 700;
-}
 .nav>li>a{
 	padding: 12px 50px;
-    margin-left: 32px;
-    margin-top: 10px;
+	margin-left: 32px;
+	margin-top: 10px;
 }
 
 .nav-tabs{
 	margin: 0px 1em;
 }
-
-
-
 
 
 th{
@@ -278,7 +267,7 @@ label{
 
 input[type=radio]{
 	display: none;
-
+	
 
 }
 
@@ -287,11 +276,11 @@ input[type=radio]:first-of-type{
 }
 
 input[type="radio"] + label {
-    color: #000;
-    font-family:Arial, sans-serif;
-    font-size:14px;
-    margin-right: 7px;
-    margin-left: 60px;
+	color: #000;
+	font-family:Arial, sans-serif;
+	font-size:14px;
+	margin-right: 7px;
+	margin-left: 60px;
 }
 
 input[type=radio] + label:first-of-type{
@@ -300,39 +289,39 @@ input[type=radio] + label:first-of-type{
 
 
 input[type="radio"] + label span {
-    display:inline-block;
-    width: 30px;
-    height: 30px;
-    margin:-1px 4px 0 0;
-    vertical-align:middle;
-    cursor:pointer;
-    font-weight: normal;
-    -moz-border-radius:  50%;
-    border-radius:  50%;
+	display:inline-block;
+	width: 30px;
+	height: 30px;
+	margin:-1px 4px 0 0;
+	vertical-align:middle;
+	cursor:pointer;
+	font-weight: normal;
+	-moz-border-radius:  50%;
+	border-radius:  50%;
 }
 
 input[type="radio"] + label span {
-     background-color:#356294;
+	background-color:#356294;     
 }
 
 input[type="radio"]:checked + label span{
-     background-color:#128b09;
-     border:2px solid #898e08;
+	background-color:#128b09;
+	border:2px solid #898e08;
 }
 
 input[type="radio"] + label span,
 input[type="radio"]:checked + label span {
-  -webkit-transition:background-color 0.4s linear;
-  -o-transition:background-color 0.4s linear;
-  -moz-transition:background-color 0.4s linear;
-  transition:background-color 0.4s linear;
+	-webkit-transition:background-color 0.4s linear;
+	-o-transition:background-color 0.4s linear;
+	-moz-transition:background-color 0.4s linear;
+	transition:background-color 0.4s linear;
 }
 
 
 
 
 .content_arrow_return{
-	width:100%;
+	width:100%; 
 	text-align:center;
 
 }
@@ -348,77 +337,48 @@ input[type="radio"]:checked + label span {
 
 /*----------------------------------------------- END APLICATIONS STYLES*/
 
-@media screen and (max-width: 800px) {
-	.input_aplication_train{
-		width: 50%;
-	}
-
-}
-
 @media screen and (max-width: 706px) {
-	.search_truck, .search_train{
-		flex-direction: column;
-	}
-	.label_aplication_truck{
-		width: 100px;
-	}
 
-	.label_aplication_train{
-		width: 155px;
-	}
-
-	.input_aplication_train, .input_aplication_truck{
-		width: 70%;
-		margin-top: 0;
-	}
-
-	.select{
-		margin-top: 0;
-		width: 70%;
-	}
 
 	.label_aplication_truck, .label_aplication_train {
 		display: block;
-		line-height: normal;
+		line-height: normal;		
 	}
-
-	.content_inputs_aplication{
-		width: 80%;
-		text-align: left;
-	}
+	
+	
 
 	.label_aplication_train_plus{
 		width: auto;
 		margin-bottom: 7px;
 	}
 
-
+	
 }
 
 @media screen and (max-width: 501px) {
 	input[type="radio"] + label {
-		    margin-left: 30px;
+		margin-left: 30px;
 	}
-
+	
 }
 
 @media screen and (max-width: 442px) {
 	.content_chekbox {
-		   text-align: left;
+		text-align: left;
 	}
 
 	input[type=radio] + label:last-of-type{
-	margin-left: 0;
-	margin-top: 30px;
-}
-
+		margin-left: 0;
+		margin-top: 30px;
+	}
+	
 }
 
 @media screen and (max-width: 410px) {
-	.nav>li>a{
-    margin-left: 0;
-    margin-top: 0;
-}
+	.nav>li>a{	
+		margin-left: 0;
+		margin-top: 0;
+	}
 
 }
 
@@ -431,15 +391,15 @@ input[type="radio"]:checked + label span {
 
 
 @media screen and (max-width: 700px) {
-	.form,{
-		width: 80%;
+	.form,{		
+		width: 80%;	
 	}
 
-
+	
 }
 
 @media screen and (max-width: 560px) {
-
+	
 	.select, .input_aplication_truck, .input_aplication_train{
 		width: 70%;
 
@@ -448,13 +408,13 @@ input[type="radio"]:checked + label span {
 		width: 100%;
 	}
 
-
+	
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 544px) {
 	table{
 		font-size: 11px;
 	}
 
-}
+}	
