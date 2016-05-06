@@ -9,8 +9,10 @@ import { ILorryMovement } from './lorryMovement'
 @Injectable()
 export class LorryService extends Service {
     //private _lorryMovementsUrl = 'api/lorry/lorry-list.json'
-    private _lorryMovementsUrl = Config.getEnvironmentVariable('endPoint') + '/webTermint/api/lorryQuery'
-    private _lorryMovementConfirmationsUrl = 'api/lorry/lorry-confirmation.json'
+    //private _lorryMovementConfirmationsUrl = 'api/lorry/lorry-confirmation.json'
+    private _lorryMovementsUrl = Config.getEnvironmentVariable('endPoint') + '/webTermint/api/lorryQuery';
+    private _lorryMovementConfirmationsUrl = Config.getEnvironmentVariable('endPoint') + '/webTermint/api/lorryConfirmation';
+    private _craneMovementConfirmationsUrl = Config.getEnvironmentVariable('endPoint') + '/webTermint/api/craneConfirmation';
 
     constructor( _http: Http) { 
         super(_http);
@@ -24,9 +26,15 @@ export class LorryService extends Service {
             .catch(this.handleError)
     }
 
-    postLorryMovements(payload): Observable<ILorryMovement[]> {
-        return this._http.post(this._lorryMovementsUrl, JSON.stringify(payload))
-            .map((response: Response) => <ILorryMovement[]>response.json())
+    confirmLorryMovement(payload): Observable<string[]> {
+        return this._http.post(this._lorryMovementConfirmationsUrl, JSON.stringify(payload))
+            .map((response: Response) => <string[]>response.json())
+            .catch(this.handleError)
+    }
+
+    confirmCraneMovement(payload): Observable<string[]> {
+        return this._http.post(this._craneMovementConfirmationsUrl, JSON.stringify(payload))
+            .map((response: Response) => <string[]>response.json())
             .catch(this.handleError)
     }
 

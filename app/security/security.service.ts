@@ -13,7 +13,7 @@ export class SecurityService extends Service {
     session: ISession = null;
     
     
-     constructor( _http: Http) { 
+    constructor( _http: Http) { 
         super(_http);
     }
     
