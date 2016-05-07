@@ -11,7 +11,7 @@ import { SpinnerComponent } from '../shared/spinner/spinner.component';
     selector: 'lorry-tab',
     templateUrl: 'app/lorry/lorry.component.html',
     directives: [ROUTER_DIRECTIVES,
-        MODAL_DIRECTIVES, 
+        MODAL_DIRECTIVES,
         SpinnerComponent]
 })
 export class LorryComponent {
@@ -23,14 +23,12 @@ export class LorryComponent {
     selectedMovementType: string = "1";
     selectedMovement: ILorryMovement;
     equipId: string;
-    
+    // Spinner
     public isRequesting: boolean;
-    @ViewChild('welcomeModal')
+    // Modal Popup
+    @ViewChild('movementConfirmationModal')
     modal: ModalComponent;
-    
 
-
-    
     private values = [
         {
             key: "1",
@@ -46,8 +44,8 @@ export class LorryComponent {
 
     search() {
         this.isRequesting = true;
-        this.lorryMovements = [];     
-        this.selectedMovement = null;   
+        this.lorryMovements = [];
+        this.selectedMovement = null;
         var payload = new Payload<string>();
         payload["usuariSessio"] = this._securityService.session.usuari;
         payload["nifSessio"] =  this._securityService.session.nif;
@@ -60,10 +58,10 @@ export class LorryComponent {
         }
         this._lorryService.getLorryMovements(payload)
             .subscribe(
-                lorryMovements => this.movementsReceived(lorryMovements), 
+                lorryMovements => this.movementsReceived(lorryMovements),
                 error => this.errorMessage = <any>error,
                 () => this.stopRefreshing()
-            ); 
+            );
     }
 
     movementsReceived(lorryMovements: ILorryMovement[]) {
@@ -81,15 +79,12 @@ export class LorryComponent {
         // currentItem sempres està un per devant al index de l'array de valors
         console.log(`selected = [${this.values[currentItem - 1].value}]`);
     }
-    
-    private stopRefreshing() {
-        this.isRequesting = false;
-    }    
-    
+
+
     public literalCraneLorry(camionOGrua: number) {
         return (camionOGrua == 1)? "CAMIÓN":"GRÚA"
     }
-    
+
 
     public selectMovement(movement: ILorryMovement) {
         this.selectedMovement = movement;
@@ -98,14 +93,14 @@ export class LorryComponent {
     }
 
     public confirmMovement() {
-        if (this.selectedMovement.camionOGrua == 1) { 
-           this.confirmLorry(); 
+        if (this.selectedMovement.camionOGrua == 1) {
+           this.confirmLorry();
         } else {
             this.confirmCrane();
         }
     }
-    
-    
+
+
     public confirmCrane() {
         var payload = new Payload<string>();
         payload["usuariSessio"] = this._securityService.session.usuari;
@@ -115,13 +110,14 @@ export class LorryComponent {
         payload["idMov"] = this.selectedMovement.idMov.toString();
         this._lorryService.confirmCraneMovement(payload)
             .subscribe(
-                errors => {this.errors = errors;
+            errors => {
+                    this.errors = errors;
                     if (errors.length == 0) {
-                        this.search();    
-                    }}, 
+                        this.search();
+                }},
                 error => this.errorMessage = <any>error,
                 () => this.close()
-            );         
+            );
     }
 
     public confirmLorry() {
@@ -133,13 +129,19 @@ export class LorryComponent {
         payload["idMov"] = this.selectedMovement.idMov.toString();
         this._lorryService.confirmLorryMovement(payload)
             .subscribe(
-                errors => {this.errors = errors;
+            errors => {
+                    this.errors = errors;
                     if (errors.length == 0) {
-                        this.search();    
-                    }}, 
+                        this.search();
+                }},
                 error => this.errorMessage = <any>error,
                 () => this.close()
-            );         
+            );
+    }
+
+    /// Spinner
+    stopRefreshing() {
+        this.isRequesting = false;
     }
 
 
@@ -147,9 +149,9 @@ export class LorryComponent {
     close() {
         this.modal.close();
     }
-    
+
     open() {
         this.modal.open('sm');
     }
-            
+
 }

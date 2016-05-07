@@ -10,7 +10,7 @@
             </select>-->
             <select class="select" (change)="onItemChange($event.target.value)">
                 <option *ngFor="#value of values" value="{{value.key}}">{{value.value}}</option>
-            </select>            
+            </select>
         </div>
         <div class="content_inputs_aplication">
             <label class="label_aplication_truck">Contenedor:</label>
@@ -18,7 +18,7 @@
         </div>
         <input type="submit" class="form_btn btn_margin_left" value="BUSCAR" (click)="search()">
     </form>
-    <my-spinner [isRunning]="isRequesting"></my-spinner>    
+    <my-spinner [isRunning]="isRequesting"></my-spinner>
     <table class="table table-striped table-bordered"  *ngIf="lorryMovements && lorryMovements.length > 0">
         <thead>
             <tr>
@@ -43,7 +43,7 @@
     </table>
     <p *ngIf="notFoundMessage">No se han encontrado datos</p>
 </div>
-<modal #welcomeModal>
+<modal #movementConfirmationModal>
     <modal-header>
         <h4 class="modal-title">Confirmación</h4>
     </modal-header>
