@@ -1,0 +1,196 @@
+.login{
+	width: 90%;
+	margin:0 auto;
+	padding: 2em;
+	background-color: #197c7f;
+	box-sizing:border-box;
+	margin-top: 50px;
+	margin-bottom: 50px;
+	text-align: center;
+}
+
+
+#login button{
+	width: 100%;
+	background-color: #197c7f;
+	margin-top: 20px;
+	
+}
+
+#login input[type="text"], #login input[type="password"]{
+	margin-top: 5px;
+	width:100%;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #0c5355;
+}
+
+#login label{
+	color:#fff;
+	font-size: 14px;	
+}
+
+.loginIcon{
+	margin-bottom: 20px;
+}
+
+
+.block{
+	display: block;
+}
+
+
+.mainNav{
+	background-color: #197c7f;
+	width: 100%;
+	height: 55px;
+	padding: 10px;
+	box-sizing: border-box;
+	position: fixed;
+}
+
+.mainNav .ui-slidemenu-content {
+	height: 116px;
+}
+.btnHamMy{
+	margin-top: 4px;
+}
+
+.loginUser{
+	float:	right;
+}
+
+.userParraf{
+	display: inline-block;
+	color:#fff;
+	font-size: 12px;
+	margin-right: 15px;
+	margin-top: 9px;
+	font-weight: 800;
+}
+
+.ui-menu .ui-menuitem{
+	height: 39px;
+}
+
+.searchTruck{
+	padding: 15px;
+	margin-top: 55px;
+	width: 100%;
+	position: fixed;
+	height: 55px;
+	box-sizing: border-box;
+	background: rgba(255,255,255,1);
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(47%, rgba(246,246,246,1)), color-stop(100%, rgba(237,237,237,1)));
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );
+}
+
+.paddingTop{
+	padding-top: 110px;
+}
+
+.ui-state-default-My{
+	background-color: #0d5c91;
+}
+
+.contenIconSearch{
+	width: 10%;
+	display: inline-block;
+	float:left;
+}
+.ui-inputtext{
+	background-color: #fff;
+}
+
+.customHeight{
+	height: 50%;
+	width: 80%;
+}
+
+.contentInputSearchContainer{
+	width: 56%;
+    display: inline-block;
+    text-align: left;
+    float:left;
+}
+
+.contentInputSearchContainer .ui-inputtext{
+	width: 80%;
+}
+
+
+.contentInputSearchType{
+    width: 32%;
+    display: inline-block;
+    text-align: right;
+    float:right;
+}
+
+.itemsListSearchTruck{	
+	padding: 10px;
+	border-top:1px solid #999998;
+	border-right:none;
+	border-left:none;
+	border-bottom:none;
+	border-left:5px solid #197c7f;
+}
+
+.itemsListSearchTruck:last-child{
+	border-bottom:1px solid #999998;
+}
+
+.contentBtnTruck{
+	width: 10%;
+	float:left;
+}
+
+.btnFinalizar{
+	border-radius: 200px 200px 200px 200px;
+	-moz-border-radius: 200px 200px 200px 200px;
+	-webkit-border-radius: 200px 200px 200px 200px;
+    border: 0px solid #000000;
+    background-color: #197c7f;
+    padding: 7px 13px;
+    color: #fff;
+    font-size: 22px;    
+}
+
+.contentContenedorTruck{
+	width: 60%;
+	display: inline-block;
+	padding-left: 4%;
+}
+
+.contentContenedorType{
+	width: 20%;
+	display: inline-block;
+	text-align: right;
+}
+
+p{margin: 0;}
+
+.descrptionSearch{
+	
+	font-size: 14px;
+	margin-bottom: 10px;
+}
+
+.tipeContainer{
+	font-size: 14px;
+	color:#9D9A9D;
+
+}
+
+input[type="text"], input[type="password"]{
+	border-bottom: 1px solid #cad3d8;
+	border-top:0;
+	border-left:0;
+	border-right:0;
+	background-color: #e7e6e6;
+	box-shadow: inset 0 0px 0px #999d9d;
+	border-radius: 0px;
+}

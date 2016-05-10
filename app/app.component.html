@@ -1,4 +1,14 @@
-<section class="section" *ngIf(!isLoggedIn())>
+<section class="login" id="login" *ngIf(!isLoggedIn())>
+	<img src="app/resources/img/loginIcon.png" class="loginIcon">
+	<form>
+		<input type="text" pInputText [(ngModel)]="username" class="block" placeholder="Usuario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Usuario'"
+		/>
+		<input type="password" pInputText [(ngModel)]="password" class="block" placeholder="Contraseña" onfocus="this.placeholder = ''"
+			onblur="this.placeholder = 'Contraseña'" />
+		<button pButton type="submit" value="ENTRAR" (click)="logIn()"></button>
+	</form>
+</section>
+<!--<section class="section" *ngIf(!isLoggedIn())>
 	<div class="header">
 		<img src="img/logo portic 20x08.jpg" class="logo">
 		<h1 class="title">PORTIC TERMINALES INTERIORES</h1>
@@ -13,7 +23,7 @@
 		</div>
 
 	</div>
-</section>
+</section>-->
 <section class="section" *ngIf(isLoggedIn())>
 	<header class="aplication_header">
 		<div style="display:flex; align-items:center;">
