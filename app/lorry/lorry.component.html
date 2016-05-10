@@ -1,13 +1,58 @@
 <!--div class="tab-content">
     <section class="section_aplication tab-pane fade in active" id="camion"-->
-<div>
+
+<div class="searchTruck">
+    <div class="contenIconSearch">
+        <img src="app/resources/img/IconSearch.png" (click)="search()">
+    </div>
+
+    <div class="contentInputSearchContainer"> 
+
+        <input type="text" pInputText [(ngModel)]="equipId" placeholder="CONTENEDOR" onfocus="this.placeholder = ''" onblur="this.placeholder = 'TODOS LOS CONTENEDOR'"/>
+
+    </div>
+    <div class="contentInputSearchType"> 
+        <p-dropdown [options]="values" [(ngModel)]="selectedMovementType"></p-dropdown>
+    </div>
+</div>
+
+<div class="paddingTop" *ngIf="lorryMovements && lorryMovements.length > 0">
+
+    <div class="itemsListSearchTruck" *ngFor="let movement of lorryMovements">
+            <div class="contentBtnTruck">
+                <button class="btnFinalizar" (click)="selectMovement(movement)">F</button>
+            </div>
+            
+            
+            <div class="contentContenedorTruck">
+                <p class="descrptionSearch">{{movement.contenedor}} <span class="tipeContainer">{{movement.tipoContenedor}}</span></p>
+                <p class="descrptionSearch">{{movement.camion}}</p>
+            </div>
+
+            <div class="contentContenedorType">
+                <p>{{movement.ubicacion}}</p>
+            </div>
+        </div>
+
+
+</div>
+
+<p-dialog header="Confirmación" [(visible)]="displayConfirmation" modal="modal" showEffect="fade">
+    
+        <p>{{ confirmationMessage }}</p>
+    
+    <footer>
+        <!--<button type="button" class="btn btn-default" data-dismiss="modal" (click)="display=false">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="confirmMovement()">Aceptar</button>-->
+        <button type="button" pButton icon="fa-close" (click)="displayConfirmation=false" label="CancelarNo"></button>
+        <button type="button" pButton icon="fa-check" (click)="confirmMovement()" label="Aceptar"></button>        
+    </footer>
+</p-dialog>
+        
+<!--<div>
     <form class="search_truck">
         <div class="content_inputs_aplication">
             <label class="label_aplication_truck">tipo:</label>
-            <!--<select class="select">
-                <option value="" selected="SALIDA">SALIDA</option>
-                <option value="ENTRADA">ENTRADA</option>
-            </select>-->
             <select class="select" (change)="onItemChange($event.target.value)">
                 <option *ngFor="#value of values" value="{{value.key}}">{{value.value}}</option>
             </select>
@@ -18,7 +63,6 @@
         </div>
         <input type="submit" class="form_btn btn_margin_left" value="BUSCAR" (click)="search()">
     </form>
-    <my-spinner [isRunning]="isRequesting"></my-spinner>
     <table class="table table-striped table-bordered"  *ngIf="lorryMovements && lorryMovements.length > 0">
         <thead>
             <tr>
@@ -42,8 +86,8 @@
         </tbody>
     </table>
     <p *ngIf="notFoundMessage">No se han encontrado datos</p>
-</div>
-<modal #movementConfirmationModal>
+</div>-->
+<!--<modal #movementConfirmationModal>
     <modal-header>
         <h4 class="modal-title">Confirmación</h4>
     </modal-header>
@@ -54,4 +98,4 @@
         <button type="button" class="btn btn-default" data-dismiss="modal" (click)="modal.dismiss()">Cancelar</button>
         <button type="button" class="btn btn-primary" (click)="confirmMovement()">Aceptar</button>
     </modal-footer>
-</modal>
+</modal>-->

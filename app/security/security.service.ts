@@ -8,7 +8,7 @@ import { ISession } from './session';
 
 @Injectable()
 export class SecurityService extends Service {
-    private _loginOkUrl = 'api/login/login-ok.json';
+    // private _loginUrl = 'api/login/login-ok.json';
     private _loginUrl = Config.getEnvironmentVariable('endPoint') + '/webTermint/api/login'
     session: ISession = null;
     

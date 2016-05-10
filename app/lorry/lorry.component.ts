@@ -1,18 +1,15 @@
 import { Component, OnInit, ViewChild } from 'angular2/core';
-import {MODAL_DIRECTIVES, ModalComponent} from 'ng2-bs3-modal/ng2-bs3-modal'
 import { ROUTER_DIRECTIVES } from 'angular2/router';
 import {ILorryMovement} from './lorryMovement';
 import {LorryService} from './lorry.service';
 import { SecurityService } from '../security/security.service';
 import { Payload } from '../payload/payload';
-import { SpinnerComponent } from '../shared/spinner/spinner.component';
+import {Button, Dialog, SelectItem,Dropdown} from 'primeng/primeng';
 
 @Component({
     selector: 'lorry-tab',
     templateUrl: 'app/lorry/lorry.component.html',
-    directives: [ROUTER_DIRECTIVES,
-        MODAL_DIRECTIVES,
-        SpinnerComponent]
+    directives: [ROUTER_DIRECTIVES, Dropdown, Dialog, Button]
 })
 export class LorryComponent {
     lorryMovements: ILorryMovement[];
@@ -23,27 +20,23 @@ export class LorryComponent {
     selectedMovementType: string = "1";
     selectedMovement: ILorryMovement;
     equipId: string;
-    // Spinner
-    public isRequesting: boolean;
-    // Modal Popup
-    @ViewChild('movementConfirmationModal')
-    modal: ModalComponent;
+    displayConfirmation: boolean = false;
+
 
     private values = [
         {
-            key: "1",
-            value: "ENTRADA"
+            value: "1",
+            label: "ENTRADA"
         },
         {
-            key: "2",
-            value: "SALIDA"
+            value: "2",
+            label: "SALIDA"
         }
     ]
 
     constructor(private _lorryService: LorryService, private _securityService: SecurityService) { }
 
     search() {
-        this.isRequesting = true;
         this.lorryMovements = [];
         this.selectedMovement = null;
         var payload = new Payload<string>();
@@ -59,9 +52,7 @@ export class LorryComponent {
         this._lorryService.getLorryMovements(payload)
             .subscribe(
                 lorryMovements => this.movementsReceived(lorryMovements),
-                error => this.errorMessage = <any>error,
-                () => this.stopRefreshing()
-            );
+                error => this.errorMessage = <any>error);
     }
 
     movementsReceived(lorryMovements: ILorryMovement[]) {
@@ -89,10 +80,11 @@ export class LorryComponent {
     public selectMovement(movement: ILorryMovement) {
         this.selectedMovement = movement;
         this.confirmationMessage = `Desea confirmar el equipo ${this.selectedMovement.contenedor.toUpperCase()}?`;
-        this.modal.open('sm');
+        this.displayConfirmation = true;
     }
 
     public confirmMovement() {
+        this.displayConfirmation = false;
         if (this.selectedMovement.camionOGrua == 1) {
            this.confirmLorry();
         } else {
@@ -115,8 +107,7 @@ export class LorryComponent {
                     if (errors.length == 0) {
                         this.search();
                 }},
-                error => this.errorMessage = <any>error,
-                () => this.close()
+                error => this.errorMessage = <any>error
             );
     }
 
@@ -134,24 +125,7 @@ export class LorryComponent {
                     if (errors.length == 0) {
                         this.search();
                 }},
-                error => this.errorMessage = <any>error,
-                () => this.close()
+                error => this.errorMessage = <any>error
             );
     }
-
-    /// Spinner
-    stopRefreshing() {
-        this.isRequesting = false;
-    }
-
-
-    /// modal methods
-    close() {
-        this.modal.close();
-    }
-
-    open() {
-        this.modal.open('sm');
-    }
-
 }

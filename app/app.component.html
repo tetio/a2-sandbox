@@ -1,11 +1,11 @@
 <section class="login" id="login" *ngIf(!isLoggedIn())>
 	<img src="app/resources/img/loginIcon.png" class="loginIcon">
 	<form>
-		<input type="text" pInputText [(ngModel)]="username" class="block" placeholder="Usuario" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Usuario'"
-		/>
+		<input type="text" pInputText [(ngModel)]="username" class="block" placeholder="Usuario" onfocus="this.placeholder = ''"
+			onblur="this.placeholder = 'Usuario'" />
 		<input type="password" pInputText [(ngModel)]="password" class="block" placeholder="Contraseña" onfocus="this.placeholder = ''"
 			onblur="this.placeholder = 'Contraseña'" />
-		<button pButton type="submit" value="ENTRAR" (click)="logIn()"></button>
+		<button pButton type="button" label="ENTRAR" (click)="login()"></button>
 	</form>
 </section>
 <!--<section class="section" *ngIf(!isLoggedIn())>
@@ -23,12 +23,11 @@
 		</div>
 
 	</div>
-</section>-->
+</section>
 <section class="section" *ngIf(isLoggedIn())>
 	<header class="aplication_header">
 		<div style="display:flex; align-items:center;">
 			<img src="img/logo.png" class="aplication_logo">
-			<!--<h2 class="aplication_title">PORTIC TERMINALES INTERIORES</h2>-->
 		</div>
 		<div style="display:flex">
 			<p class="user_company">Ususario:</p>
@@ -41,6 +40,36 @@
 		<li [class.active]="isLorryMode()" (click)="setLorryMode()"><a data-toggle="tab" [routerLink]="['Lorry']">CAMIÓN</a></li>
 		<li [class.active]="isTrainMode()" (click)="setTrainMode()"><a data-toggle="tab" [routerLink]="['Train']">TREN</a></li>
 	</ul>
+	<section>
+		<div class="page-content">
+			<router-outlet></router-outlet>
+		</div>
+	</section>
+</section>
+-->
+
+
+
+<section class="section" *ngIf(isLoggedIn())>
+	<header class="mainNav">
+
+		<p-slideMenu [popup]="true" [trigger]="btn">
+			<ul>
+				<li (click)="setLorryMode()"> <a data-icon="fa-truck" [routerLink]="['Lorry']"><span>CAMION</span></a>
+				</li>
+				<li (click)="setTrainMode()"> <a data-icon="fa-train" [routerLink]="['Train']">TREN</a>
+				</li>
+				<li> <a data-icon="fa-user-times">SALIR</a>
+				</li>
+			</ul>
+		</p-slideMenu>
+		<button #btn type="button" pButton icon="fa fa-reorder" class="btnHamMy"></button>
+		<div class="loginUser">
+			<p class="userParraf">User:</p>
+			<p class="userParraf">{{_securityService.session.nomUsuari}}</p>
+		</div>
+
+	</header>
 	<section>
 		<div class="page-content">
 			<router-outlet></router-outlet>

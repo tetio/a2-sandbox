@@ -5,9 +5,10 @@ export class Config {
         var data = {};
         environment = window.location.hostname;
         switch (environment) {
+//                    endPoint: 'http://localhost:8181'
             case 'localhost':
                 data = {
-                    endPoint: 'http://localhost:8181'
+                    endPoint: 'http://10.120.1.182:12100'
                 };
                 break;
              case '10.120.1.182':
