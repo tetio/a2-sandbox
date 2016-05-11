@@ -3,7 +3,7 @@
 
 <div class="searchTruck">
     <div class="contenIconSearch">
-        <img src="app/resources/img/IconSearch.png" (click)="search()">
+        <img src="app/resources/img/IconSearch.png"class="imgSearch" (click)="search()">
     </div>
 
     <div class="contentInputSearchContainer"> 
@@ -37,14 +37,14 @@
 
 </div>
 
-<p-dialog header="Confirmación" [(visible)]="displayConfirmation" modal="modal" showEffect="fade">
+<p-dialog header="Confirmación" data-icon="fa-plus" [(visible)]="displayConfirmation" modal="modal" showEffect="fade">
     
         <p>{{ confirmationMessage }}</p>
     
     <footer>
         <!--<button type="button" class="btn btn-default" data-dismiss="modal" (click)="display=false">Cancelar</button>
         <button type="button" class="btn btn-primary" (click)="confirmMovement()">Aceptar</button>-->
-        <button type="button" pButton icon="fa-close" (click)="displayConfirmation=false" label="CancelarNo"></button>
+        <button type="button" pButton icon="fa-close" (click)="displayConfirmation=false" label="Cancelar"></button>
         <button type="button" pButton icon="fa-check" (click)="confirmMovement()" label="Aceptar"></button>        
     </footer>
 </p-dialog>

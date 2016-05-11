@@ -2,7 +2,7 @@
 	width: 90%;
 	margin:0 auto;
 	padding: 2em;
-	background-color: #197c7f;
+	background-color: #29506b;
 	box-sizing:border-box;
 	margin-top: 50px;
 	margin-bottom: 50px;
@@ -12,17 +12,19 @@
 
 #login button{
 	width: 100%;
-	background-color: #197c7f;
+	background: #2eb197;
 	margin-top: 20px;
-	
+	border-radius: 0;
+	color:#fff;	
 }
 
 #login input[type="text"], #login input[type="password"]{
 	margin-top: 5px;
-	width:100%;
+	width:97%;
 	margin-bottom: 20px;
 	border-bottom: 1px solid #0c5355;
 }
+
 
 #login label{
 	color:#fff;
@@ -53,6 +55,13 @@
 }
 .btnHamMy{
 	margin-top: 4px;
+}
+
+.mainNav button{
+	border: 1px solid #fff;
+	background: transparent;
+	color:#fff;
+	border-radius: 0px;
 }
 
 .loginUser{
@@ -100,8 +109,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 .contenIconSearch{
 	width: 10%;
 	display: inline-block;
-	float:left;
+	float:right;
+	text-align: right;
 }
+
+.imgSearch{
+	cursor: pointer;
+}
+
 .ui-inputtext{
 	background-color: #fff;
 }
@@ -132,12 +147,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 
 .itemsListSearchTruck{	
 	padding: 10px;
-	border-top:1px solid #999998;
+	border-top:1px solid #197c7f;
 	border-right:none;
 	border-left:none;
 	border-bottom:none;
 	border-left:5px solid #197c7f;
 }
+
+
+
 
 .itemsListSearchTruck:last-child{
 	border-bottom:1px solid #999998;
@@ -154,9 +172,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	-webkit-border-radius: 200px 200px 200px 200px;
     border: 0px solid #000000;
     background-color: #197c7f;
-    padding: 7px 13px;
+    padding: 5px 10px;
     color: #fff;
-    font-size: 22px;    
+    font-size: 19px;    
 }
 
 .contentContenedorTruck{
@@ -193,4 +211,47 @@ input[type="text"], input[type="password"]{
 	background-color: #e7e6e6;
 	box-shadow: inset 0 0px 0px #999d9d;
 	border-radius: 0px;
+	padding: 4px;
+	width: 150px;
+}
+
+.contentInputSearchContainer .ui-inputtext {
+    width: 80%;
+}
+
+.contentInputSearchType .ui-dropdown{
+	width:80px!important;
+}
+
+.section .ui-widget-header{
+	background: #197c7f;
+	text-align: center;
+	border-radius: 0px;	
+}
+
+.section .ui-dialog-title{
+	float: none;
+} 
+
+.section .ui-dialog{
+	border-radius: 0px;
+} 
+
+  .ui-widget footer{
+	  text-align: center;
+	  padding: 20px;
+} 
+.ui-dialog .ui-state-default{
+	color:#fff;
+	font-weight: normal;
+	background: #29506b;
+	border-radius: 0px;
+	margin-right: 15px;
+}
+.ui-dialog .ui-state-default:last-child{	
+	margin-right: 0px;
+}
+
+div.ui-widget-overlay{
+	background: #0c5355;
 }
