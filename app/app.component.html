@@ -52,10 +52,9 @@
 
 <section class="section" *ngIf(isLoggedIn())>
 	<header class="mainNav">
-
 		<p-menu [popup]="true" [trigger]="btn" my="left top" at="left bottom">
 			<ul>
-				<li (click)="setLorryMode()"> <a data-icon="fa-truck" [routerLink]="['Lorry']"><span>CAMION</span></a>
+				<li (click)="setLorryMode()"> <a data-icon="fa-truck" [routerLink]="['Lorry']"><span>CAMIÓN</span></a>
 				</li>
 				<li (click)="setTrainMode()"> <a data-icon="fa-train" [routerLink]="['Train']">TREN</a>
 				</li>
@@ -68,9 +67,8 @@
 			<p class="userParraf">User:</p>
 			<p class="userParraf">{{_securityService.session.nomUsuari}}</p>
 		</div>
-
 	</header>
-	<section>	
+	<section>
 		<div class="page-content">
 			<router-outlet></router-outlet>
 		</div>

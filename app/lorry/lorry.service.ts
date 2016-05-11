@@ -4,7 +4,7 @@ import {Observable} from 'rxjs/Observable';
 import { Config } from "../config/config"
 import { Payload } from '../payload/payload';
 import { Service } from '../payload/service';
-import { ILorryMovement } from './lorryMovement'
+import { LorryQueryResponse } from './lorryMovement';
 
 @Injectable()
 export class LorryService extends Service {
@@ -18,11 +18,12 @@ export class LorryService extends Service {
         super(_http);
     }
 
-    getLorryMovements(payload): Observable<ILorryMovement[]> {
-        let queryString = this.generateQueryString(payload);
+    getLorryMovements(payload): Observable<LorryQueryResponse> {
+//        let queryString = this.generateQueryString(payload);
 
-        return this._http.get(this._lorryMovementsUrl + queryString)
-            .map((response: Response) => <ILorryMovement[]>response.json())
+//        return this._http.get(this._lorryMovementsUrl + queryString)
+        return this._http.post(this._lorryMovementsUrl, JSON.stringify(payload))
+            .map((response: Response) => <LorryQueryResponse>response.json())
             .catch(this.handleError)
     }
 

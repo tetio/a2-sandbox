@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from 'angular2/core';
 import { ROUTER_DIRECTIVES } from 'angular2/router';
-import {ILorryMovement} from './lorryMovement';
+import {ILorryMovement, LorryQueryResponse} from './lorryMovement';
 import {LorryService} from './lorry.service';
 import { SecurityService } from '../security/security.service';
 import { Payload } from '../payload/payload';
@@ -26,11 +26,11 @@ export class LorryComponent {
     private values = [
         {
             value: "1",
-            label: "ENTRADA"
+            label: "Entrada"
         },
         {
             value: "2",
-            label: "SALIDA"
+            label: "Salida"
         }
     ]
 
@@ -51,13 +51,13 @@ export class LorryComponent {
         }
         this._lorryService.getLorryMovements(payload)
             .subscribe(
-                lorryMovements => this.movementsReceived(lorryMovements),
+                lorryQueryResponse => this.movementsReceived(lorryQueryResponse),
                 error => this.errorMessage = <any>error);
     }
 
-    movementsReceived(lorryMovements: ILorryMovement[]) {
-        this.lorryMovements = lorryMovements;
-        this.notFoundMessage = (lorryMovements.length == 0);
+    movementsReceived(response: LorryQueryResponse) {
+        this.lorryMovements = response.lista;
+        this.notFoundMessage = (response.lista.length == 0);
 
     }
 

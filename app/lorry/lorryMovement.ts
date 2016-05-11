@@ -1,3 +1,5 @@
+import { TermintResult } from '../common/TermintResult';
+
 export interface ILorryMovement {
       camionOGrua: number;
       idMov: number;
@@ -15,4 +17,9 @@ export interface ILorryMovement {
       creadoManualmenteFlag: boolean;
       bTieneIncidencias: boolean;
  //     incidenciasKeys: String[]
+}
+
+
+export interface LorryQueryResponse extends TermintResult {
+      lista: ILorryMovement[];
 }
