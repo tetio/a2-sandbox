@@ -6,6 +6,8 @@ export class Config {
         environment = window.location.hostname;
         switch (environment) {
 //                    endPoint: 'http://localhost:8181'
+//                    endPoint: 'http://10.120.1.182:12100'
+
             case 'localhost':
                 data = {
                     endPoint: 'http://10.120.1.182:12100'
@@ -29,7 +31,7 @@ export class Config {
 
             default:
                 data = {
-                    endPoint: 'http://'+environment+':8181'
+                    endPoint: 'http://10.120.1.182:12100'
                 };
         }
         return data[value];
