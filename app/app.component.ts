@@ -18,7 +18,7 @@ import { Payload } from './payload/payload';
 
 
 ///
-import {SlideMenu} from 'primeng/primeng';
+import {Menu} from 'primeng/primeng';
 import {Accordion} from 'primeng/primeng';
 import {AccordionTab} from 'primeng/primeng';
 import {Draggable,Droppable} from 'primeng/primeng';
@@ -31,7 +31,7 @@ import {Dropdown} from 'primeng/primeng';
     selector: 'my-app',
     templateUrl: 'app/app.component.html',
     directives: [ROUTER_DIRECTIVES,
-	SlideMenu,InputText,DataTable,Button,Dialog,Column,Header,Footer,Accordion,AccordionTab,Draggable,Droppable,Lightbox,Growl,Dropdown],
+	Menu,InputText,DataTable,Button,Dialog,Column,Header,Footer,Accordion,AccordionTab,Draggable,Droppable,Lightbox,Growl,Dropdown],
     providers: [LorryService,
 		TrainService,
 		SecurityService,
@@ -51,8 +51,8 @@ export class AppComponent {
 	lorryMode: boolean = true;
 	trainMode: boolean = false;
 	loggedIn: boolean = false;
-	username: string;
-	password: string;
+	username: string = "NESTA";
+	password: string = "CALL";
 	errorMessage: string;
 	
 	

@@ -53,7 +53,7 @@
 <section class="section" *ngIf(isLoggedIn())>
 	<header class="mainNav">
 
-		<p-slideMenu [popup]="true" [trigger]="btn">
+		<p-menu [popup]="true" [trigger]="btn" my="left top" at="left bottom">
 			<ul>
 				<li (click)="setLorryMode()"> <a data-icon="fa-truck" [routerLink]="['Lorry']"><span>CAMION</span></a>
 				</li>
@@ -62,7 +62,7 @@
 				<li> <a data-icon="fa-user-times">SALIR</a>
 				</li>
 			</ul>
-		</p-slideMenu>
+		</p-menu>
 		<button #btn type="button" pButton icon="fa fa-reorder" class="btnHamMy"></button>
 		<div class="loginUser">
 			<p class="userParraf">User:</p>
@@ -70,7 +70,7 @@
 		</div>
 
 	</header>
-	<section>
+	<section>	
 		<div class="page-content">
 			<router-outlet></router-outlet>
 		</div>
