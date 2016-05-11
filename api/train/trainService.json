@@ -1,0 +1,81 @@
+{
+  "lista": [
+    {
+      "codigo": "TIINTE",
+      "descripcion": "TIINTE"
+    },
+    {
+      "codigo": "KKK3",
+      "descripcion": "KKK3"
+    },
+    {
+      "codigo": "TEST",
+      "descripcion": "TEST"
+    },
+    {
+      "codigo": "dsadsa",
+      "descripcion": "dsadsa"
+    },
+    {
+      "codigo": "TI",
+      "descripcion": "TI"
+    },
+    {
+      "codigo": "JORDI",
+      "descripcion": "JORDI"
+    },
+    {
+      "codigo": "TIORI",
+      "descripcion": "TIORI"
+    },
+    {
+      "codigo": "DMN",
+      "descripcion": "DMN"
+    },
+    {
+      "codigo": "QASERVICIO",
+      "descripcion": "QASERVICIO"
+    },
+    {
+      "codigo": "12345678901234567",
+      "descripcion": "12345678901234567"
+    },
+    {
+      "codigo": "TIDES",
+      "descripcion": "TIDES"
+    },
+    {
+      "codigo": "BNMFD",
+      "descripcion": "BNMFD"
+    },
+    {
+      "codigo": "BCNMA",
+      "descripcion": "BCNMA"
+    },
+    {
+      "codigo": "CODTONI",
+      "descripcion": "CODTONI"
+    },
+    {
+      "codigo": "TCB-AZUQUECA",
+      "descripcion": "TCB-AZUQUECA"
+    },
+    {
+      "codigo": "CODQAINTER",
+      "descripcion": "CODQAINTER"
+    },
+    {
+      "codigo": "XXXXXX",
+      "descripcion": "XXXXXX"
+    },
+    {
+      "codigo": "CODITONI",
+      "descripcion": "CODITONI"
+    },
+    {
+      "codigo": "TIORIs",
+      "descripcion": "TIORIs"
+    }
+  ],
+  "llistaErrors": []
+}
