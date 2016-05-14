@@ -1,5 +1,5 @@
-[
-    {
+{
+    "lista": [{
         "camionOGrua": 1,
         "idMov": 40281,
         "camion": "",
@@ -16,8 +16,7 @@
         "creadoManualmenteFlag": false,
         "bTieneIncidencias": false,
         "incidenciasKeys": []
-    },
-    {
+    }, {
         "camionOGrua": 1,
         "idMov": 40283,
         "camion": "",
@@ -34,8 +33,7 @@
         "creadoManualmenteFlag": false,
         "bTieneIncidencias": false,
         "incidenciasKeys": []
-    },    
-    {
+    }, {
         "camionOGrua": 1,
         "idMov": 40297,
         "camion": "",
@@ -52,5 +50,5 @@
         "creadoManualmenteFlag": false,
         "bTieneIncidencias": false,
         "incidenciasKeys": []
-    }
-]
+    }]
+}

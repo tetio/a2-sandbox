@@ -8,7 +8,7 @@ import { LorryQueryResponse } from './lorryMovement';
 
 @Injectable()
 export class LorryService extends Service {
-    //private _lorryMovementsUrl = 'api/lorry/lorry-list.json'
+    private _lorryTESTMovementsUrl = 'api/lorry/lorry-list.json'
     //private _lorryMovementConfirmationsUrl = 'api/lorry/lorry-confirmation.json'
     private _lorryMovementsUrl = Config.getEnvironmentVariable('endPoint') + '/webTermint/api/lorryQuery';
     private _lorryMovementConfirmationsUrl = Config.getEnvironmentVariable('endPoint') + '/webTermint/api/lorryConfirmation';
@@ -19,7 +19,8 @@ export class LorryService extends Service {
     }
 
     getLorryMovements(payload): Observable<LorryQueryResponse> {
-        return this._http.post(this._lorryMovementsUrl, JSON.stringify(payload))
+//        return this._http.post(this._lorryMovementsUrl, JSON.stringify(payload))
+        return this._http.get(this._lorryTESTMovementsUrl)
             .map((response: Response) => <LorryQueryResponse>response.json())
             .catch(this.handleError)
     }

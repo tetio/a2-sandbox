@@ -8,7 +8,7 @@ import { ISession } from './session';
 
 @Injectable()
 export class SecurityService extends Service {
-    // private _loginUrl = 'api/login/login-ok.json';
+     private _loginOKUrl = 'api/login/login-ok.json';
     private _loginUrl = Config.getEnvironmentVariable('endPoint') + '/webTermint/api/login'
     session: ISession = null;
     
@@ -18,7 +18,8 @@ export class SecurityService extends Service {
     }
     
     login(payload): Observable<ISession> {
-        return this._http.post(this._loginUrl, JSON.stringify(payload))
+//        return this._http.post(this._loginUrl, JSON.stringify(payload))
+        return this._http.get(this._loginOKUrl)
             .map((response: Response) => <ISession>response.json())
             .catch(this.handleError)
     }
