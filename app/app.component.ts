@@ -12,10 +12,10 @@ import { TrainService } from './train/train.service';
 import { SecurityService } from './security/security.service';
 import { WelcomeComponent } from './home/welcome.component';
 import { ProductDetailComponent } from './products/product-detail.component';
-import { LorryComponent } from './lorry/lorry.component'
-import { TrainComponent } from './train/train.component'
+import { LorryComponent } from './lorry/lorry.component';
+import { TrainComponent } from './train/train.component';
 import { Payload } from './payload/payload';
-
+import { TrainEquipsComponent } from './train/trainEquips.component';
 
 ///
 import {Menu} from 'primeng/primeng';
@@ -40,7 +40,8 @@ import {Dropdown} from 'primeng/primeng';
 })
 @RouteConfig([
     { path: '/lorry', name: 'Lorry', component: LorryComponent, useAsDefault: true },
-    { path: '/train', name: 'Train', component: TrainComponent }
+    { path: '/train', name: 'Train', component: TrainComponent },
+	{ path: '/trainequips', name: 'TrainEquips', component: TrainEquipsComponent }
 ])
 export class AppComponent {
     pageTitle: string = 'Gestión de entradas y salidas';

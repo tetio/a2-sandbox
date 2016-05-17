@@ -5,99 +5,30 @@
 
     <div class="contentInputSearchContainer"> 
 
-        <p-calendar [(ngModel)]="dateValue" placeholder="dd/mm/aaaa" onfocus="this.placeholder = ''" onblur="this.placeholder = 'dd/mm/aaaa'"></p-calendar>
+        <p-calendar [(ngModel)]="fechaOficialSalida" placeholder="dd/mm/aaaa" onfocus="this.placeholder = ''" onblur="this.placeholder = 'dd/mm/aaaa'" [locale]="es"></p-calendar>
 
+    </div>
+    <div class="contentInputSearchType">
+        <p-dropdown [options]="trainServices" [(ngModel)]="selectedTrainService"></p-dropdown>
     </div>
     <div class="contentInputSearchType">
         <p-dropdown [options]="operaciones" [(ngModel)]="selectedOperacion"></p-dropdown>
     </div>
 </div>
  
-<div class="paddingTop" >
-    <div class="itemsListSearchTrain" > 
+<div class="paddingTop"  *ngIf="trains && trains.length > 0">
+    <div class="itemsListSearchTrain" *ngFor="let train of trains"> 
             <div class="contentContenedorTruck">
-                <p class="descrptionSearchTrain"> BCN-AZUQ <span class="tipeContainer">15/03/2016</span></p>
-                <p class="descrptionSearch">15/03/2016 00:00</p>
+                <p class="descrptionSearchTrain">{{train.servicio}}</p>
+                <p class="descrptionSearch">{{ train.fos | date:'mediumDate'}}</p>
             </div>
 
             <div class="contentContenedorType">
-                <p>Carga</p>
+                <p>{{train.operacion}}</p>
             </div>
             
             <div class="contentBtnTrainPlus">
-                <button class="btnFinalizar">+</button>
+                <button class="btnFinalizar" (click)="selectTrain(train)">+</button>
             </div>
      </div>
 </div>
-
-<!-- INICIO SEGUNDA VENTANA TREN -->
-
-<div class="searchTruck paddingSearchTrain">
-    
-        <img src="app/resources/img/arrow.png" class="imgArrow">
-    
-        <p class="infoSelectedTrainItemLeft">10-ALFIL-AZUQ</p>
-        <p class="infoSelectedTrainItemRight">12/05/2016</p>        
-    
-    
-        <p class="infoSelectedTrainItemLeft">12/05/2016 00:00</p>
-        <p class="infoSelectedTrainItemRight">Descarga</p>
-        
-    
-</div>
- 
-<div class="paddingTop" >
-    <div class="itemsListSearchTrain" > 
-            <div class="contentContenedorTruck">
-                <p class="descrptionSearchTrain"> TTNU1115554 <span class="tipeContainer">2000</span></p>
-                <p class="descrptionSearch">AUT231656125</p>
-            </div>
-
-            <div class="contentContenedorType">
-                <p>Descarga</p>
-                <p>LLENO</p>
-            </div>
-            
-            <div class="contentBtnTrainPlus">
-                <button class="btnFinalizar">F</button>
-            </div>
-     </div>
-</div>
-
-<p-dialog header="Confirmación" data-icon="fa-plus" [(visible)]="displayConfirmation" modal="modal" showEffect="fade">
-    
-        <p></p>
-    
-    <footer>
-        <!--<button type="button" class="btn btn-default" data-dismiss="modal" (click)="display=false">Cancelar</button>
-        <button type="button" class="btn btn-primary" (click)="confirmMovement()">Aceptar</button>-->
-        <button type="button" pButton icon="fa-close" (click)="displayConfirmation=false" label="Cancelar"></button>
-        <button type="button" pButton icon="fa-check" (click)="confirmMovement()" label="Aceptar"></button>        
-    </footer>
-</p-dialog>
-
-<!--FIN SEGUNDA VENTANA TREN -->
-
-<!--<div>
-    <form class="search_train" id="search_train">
-        <div class="content_inputs_aplication">
-            <label class="label_aplication_train">Servicio:</label>
-            <select class="select">
-							<option value="" selected="SALIDA">SALIDA</option>
-							<option value="ENTRADA">ENTRADA</option>
-						</select>
-        </div>
-        <div class="content_inputs_aplication">
-            <label class="label_aplication_train">Fecha oficial salida</label>
-            <input type="date" class="input_aplication_train" required>
-        </div>
-        <div class="content_chekbox">
-            <input type="radio" name="mov" id="radio01"><label for="radio01"><span></span>Carga</label>
-            <input type="radio" name="mov" id="radio02"><label for="radio02"><span></span>Descarga</label>
-            <input type="radio" name="mov" id="radio03"><label for="radio03"><span></span>Todos</label>
-        </div>
-        <input type="submit" class="form_btn btn_margin_left" value="BUSCAR">
-    </form>
-
-</div>
--->

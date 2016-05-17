@@ -5,17 +5,22 @@ import {Observable} from 'rxjs/Observable';
 import { Config } from "../config/config"
 import { Payload } from '../payload/payload';
 import { Service } from '../payload/service';
-import {ITrainServicesResponse, ITrain} from './train'
+import {ITrainServicesResponse, ITrain, ITrainEquipsResponse} from './train'
 
 @Injectable()
-export class TrainService {
+export class TrainService extends Service {
     private _trainServicesUrl = Config.getEnvironmentVariable('endPoint') + '/webTermint/api/trainServicesQuery';
-    private _trainMovementsUrl = 'api/train/train-list.json'
-    private _trainMovementConfirmationsUrl = 'api/train/train-confirmation.json'
+    //private _trainsTESTUrl = 'api/train/train-list.json';
+    private _trainsUrl = Config.getEnvironmentVariable('endPoint') + '/webTermint/api/trainQuery';   
+    private _trainEquipsUrl = Config.getEnvironmentVariable('endPoint') + '/webTermint/api/trainEquipQuery';
+    private _trainMovementConfirmationsUrl = Config.getEnvironmentVariable('endPoint') + '/webTermint/api/train...';
     private _lorryMovementsUrl = Config.getEnvironmentVariable('endPoint') + '/webTermint/api/trainQuery';
 
-    constructor(private _http: Http) {}
+    selectedTrain: ITrain;
 
+    constructor(_http: Http) {
+        super(_http);
+    }
 
     getTrainServices(payload) : Observable<ITrainServicesResponse> {
         return this._http.post(this._trainServicesUrl, JSON.stringify(payload))
@@ -24,13 +29,14 @@ export class TrainService {
     }
 
     getTrains(payload) : Observable<ITrain[]> {
-        return this._http.post(this._trainMovementsUrl, JSON.stringify(payload))
+        return this._http.post(this._trainsUrl, JSON.stringify(payload))
             .map((response: Response) => <ITrain[]>response.json())
             .catch(this.handleError)
     }
 
-    private handleError(error: Response) {
-        console.error(error);
-        return Observable.throw(error.json().error || 'Server error');
+    getTrainEquips(payload) : Observable<ITrainEquipsResponse> {
+        return this._http.post(this._trainEquipsUrl, JSON.stringify(payload))
+            .map((response: Response) => <ITrainEquipsResponse>response.json())
+            .catch(this.handleError)
     }
 }
