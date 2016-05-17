@@ -4,12 +4,13 @@ import { ITrainService, ITrain} from './train';
 import {TrainService} from './train.service';
 import { SecurityService } from '../security/security.service';
 import { Payload } from '../payload/payload';
+import {Button, Dialog, SelectItem, Dropdown, Calendar} from 'primeng/primeng';
 
 
 @Component({
     selector: 'train-tab',
     templateUrl: 'app/train/train.component.html',
-    directives: [ROUTER_DIRECTIVES]
+    directives: [ROUTER_DIRECTIVES, Dropdown, Dialog, Button, Calendar]
 })
 export class TrainComponent implements OnInit {
     trains: ITrain[];
@@ -74,4 +75,5 @@ export class TrainComponent implements OnInit {
             trains => this.trains = trains,
             error => this.errorMessage = <any>error);
     }
+        
 }

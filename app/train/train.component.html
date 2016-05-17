@@ -1,4 +1,84 @@
-<div>
+<div class="searchTruck">
+    <div class="contenIconSearch">
+        <img src="app/resources/img/IconSearch.png"class="imgSearch" (click)="search()">
+    </div>
+
+    <div class="contentInputSearchContainer"> 
+
+        <p-calendar [(ngModel)]="dateValue" placeholder="dd/mm/aaaa" onfocus="this.placeholder = ''" onblur="this.placeholder = 'dd/mm/aaaa'"></p-calendar>
+
+    </div>
+    <div class="contentInputSearchType">
+        <p-dropdown [options]="operaciones" [(ngModel)]="selectedOperacion"></p-dropdown>
+    </div>
+</div>
+ 
+<div class="paddingTop" >
+    <div class="itemsListSearchTrain" > 
+            <div class="contentContenedorTruck">
+                <p class="descrptionSearchTrain"> BCN-AZUQ <span class="tipeContainer">15/03/2016</span></p>
+                <p class="descrptionSearch">15/03/2016 00:00</p>
+            </div>
+
+            <div class="contentContenedorType">
+                <p>Carga</p>
+            </div>
+            
+            <div class="contentBtnTrainPlus">
+                <button class="btnFinalizar">+</button>
+            </div>
+     </div>
+</div>
+
+<!-- INICIO SEGUNDA VENTANA TREN -->
+
+<div class="searchTruck paddingSearchTrain">
+    
+        <img src="app/resources/img/arrow.png" class="imgArrow">
+    
+        <p class="infoSelectedTrainItemLeft">10-ALFIL-AZUQ</p>
+        <p class="infoSelectedTrainItemRight">12/05/2016</p>        
+    
+    
+        <p class="infoSelectedTrainItemLeft">12/05/2016 00:00</p>
+        <p class="infoSelectedTrainItemRight">Descarga</p>
+        
+    
+</div>
+ 
+<div class="paddingTop" >
+    <div class="itemsListSearchTrain" > 
+            <div class="contentContenedorTruck">
+                <p class="descrptionSearchTrain"> TTNU1115554 <span class="tipeContainer">2000</span></p>
+                <p class="descrptionSearch">AUT231656125</p>
+            </div>
+
+            <div class="contentContenedorType">
+                <p>Descarga</p>
+                <p>LLENO</p>
+            </div>
+            
+            <div class="contentBtnTrainPlus">
+                <button class="btnFinalizar">F</button>
+            </div>
+     </div>
+</div>
+
+<p-dialog header="Confirmación" data-icon="fa-plus" [(visible)]="displayConfirmation" modal="modal" showEffect="fade">
+    
+        <p></p>
+    
+    <footer>
+        <!--<button type="button" class="btn btn-default" data-dismiss="modal" (click)="display=false">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="confirmMovement()">Aceptar</button>-->
+        <button type="button" pButton icon="fa-close" (click)="displayConfirmation=false" label="Cancelar"></button>
+        <button type="button" pButton icon="fa-check" (click)="confirmMovement()" label="Aceptar"></button>        
+    </footer>
+</p-dialog>
+
+<!--FIN SEGUNDA VENTANA TREN -->
+
+<!--<div>
     <form class="search_train" id="search_train">
         <div class="content_inputs_aplication">
             <label class="label_aplication_train">Servicio:</label>
@@ -20,3 +100,4 @@
     </form>
 
 </div>
+-->

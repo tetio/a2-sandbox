@@ -1,5 +1,6 @@
-<section class="login" id="login" *ngIf(!isLoggedIn())>
+<section class="login" id="login" *ngIf(!isLoggedIn())>	
 	<img src="app/resources/img/loginIcon.png" class="loginIcon">
+	<p class="titleWelcome">TERMINALES INTERIORES</p>
 	<form>
 		<input type="text" pInputText [(ngModel)]="username" class="block" placeholder="Usuario" onfocus="this.placeholder = ''"
 			onblur="this.placeholder = 'Usuario'" />
