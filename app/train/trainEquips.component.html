@@ -2,32 +2,30 @@
 
 <div class="searchTruck paddingSearchTrain">
     
-        <img src="app/resources/img/arrow.png" class="imgArrow">
+        <img src="app/resources/img/arrow.png" class="imgArrow" (click)="goBack()">
     
-        <p class="infoSelectedTrainItemLeft">10-ALFIL-AZUQ</p>
-        <p class="infoSelectedTrainItemRight">12/05/2016</p>        
-    
-    
-        <p class="infoSelectedTrainItemLeft">12/05/2016 00:00</p>
-        <p class="infoSelectedTrainItemRight">Descarga</p>
+        <p class="infoSelectedTrainItemLeft">{{_trainService.selectedTrain.servicio}}</p>
+        <p class="infoSelectedTrainItemRight">-</p>
+        <p class="infoSelectedTrainItemLeft">{{ _trainService.selectedTrain.fos | date:'d'}}/{{ _trainService.selectedTrain.fos | date:'MM'}}/{{ _trainService.selectedTrain.fos | date:'y'}}</p>
+        <p class="infoSelectedTrainItemRight">{{_trainService.selectedTrain.operacion}}</p>
         
     
 </div>
  
-<div class="paddingTop" >
-    <div class="itemsListSearchTrain" > 
+<div class="paddingTop" *ngIf="trainEquips && trainEquips.length > 0">
+    <div class="itemsListSearchTrain" *ngFor="let equip of trainEquips"> 
             <div class="contentContenedorTruck">
-                <p class="descrptionSearchTrain"> TTNU1115554 <span class="tipeContainer">2000</span></p>
-                <p class="descrptionSearch">AUT231656125</p>
+                <p class="descrptionSearchTrain"> {{equip.matricula}} <span class="tipeContainer">{{equip.tipo}}</span></p>
+                <p class="descrptionSearch">{{equip.numAutorizacion}}</p>
             </div>
 
             <div class="contentContenedorType">
-                <p>Descarga</p>
-                <p>LLENO</p>
+                <p>{{_trainService.selectedTrain.operacion}}</p>
+                <p>{{equip.llenoVacio}}</p>
             </div>
             
             <div class="contentBtnTrainPlus">
-                <button class="btnFinalizar">F</button>
+                <button class="btnFinalizar" (click)="confirmEquip(equip)">F</button>
             </div>
      </div>
 </div>

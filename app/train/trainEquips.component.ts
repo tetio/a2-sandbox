@@ -1,6 +1,6 @@
 import { Component, OnInit } from 'angular2/core';
-import { Router } from 'angular2/router';
-import { ITrainService, ITrain} from './train';
+import { Router} from 'angular2/router';
+import { ITrainEquip, ITrain} from './train';
 import {TrainService} from './train.service';
 import { SecurityService } from '../security/security.service';
 import { Payload } from '../payload/payload';
@@ -14,7 +14,8 @@ import {Button, Dialog, SelectItem, Dropdown, Calendar} from 'primeng/primeng';
 })
 
 export class TrainEquipsComponent implements OnInit {
-    trainEquips: IT
+    trainEquips: ITrainEquip[];
+    errorMessage: string;
     constructor(private _trainService: TrainService,
         private _securityService: SecurityService,
         private _router: Router) { }
@@ -27,15 +28,19 @@ export class TrainEquipsComponent implements OnInit {
         payload["token"] = this._securityService.session.token;
         payload["pagina"] = "1";
         payload["idTren"] = this._trainService.selectedTrain.idTren;
-        this._trainService.getTrainServices(payload)
+        this._trainService.getTrainEquips(payload)
             .subscribe(
-            trainServicesResponse => {
-                // Check de seguretat
-                this.selectedTrainService = trainServicesResponse.lista[0].value;
-                this.trainServices = trainServicesResponse.lista;
- 
-
+            trainEquipsResponse => {
+                // Check de seguretat;
+                this.trainEquips = trainEquipsResponse.lista;
             },
             error => this.errorMessage = <any>error);        
+    }
+    
+    goBack() {
+        this._router.navigate(['Train']);
+    }
+    
+    confirmEquip(equip) {    
     }
 }
