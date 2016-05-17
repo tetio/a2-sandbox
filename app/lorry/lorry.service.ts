@@ -19,8 +19,8 @@ export class LorryService extends Service {
     }
 
     getLorryMovements(payload): Observable<LorryQueryResponse> {
-//        return this._http.post(this._lorryMovementsUrl, JSON.stringify(payload))
-        return this._http.get(this._lorryTESTMovementsUrl)
+        return this._http.post(this._lorryMovementsUrl, JSON.stringify(payload))
+//        return this._http.get(this._lorryTESTMovementsUrl)
             .map((response: Response) => <LorryQueryResponse>response.json())
             .catch(this.handleError)
     }

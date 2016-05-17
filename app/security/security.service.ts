@@ -18,8 +18,8 @@ export class SecurityService extends Service {
     }
     
     login(payload): Observable<ISession> {
-//        return this._http.post(this._loginUrl, JSON.stringify(payload))
-        return this._http.get(this._loginOKUrl)
+        return this._http.post(this._loginUrl, JSON.stringify(payload))
+//        return this._http.get(this._loginOKUrl)
             .map((response: Response) => <ISession>response.json())
             .catch(this.handleError)
     }
