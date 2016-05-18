@@ -36,7 +36,7 @@
     <footer>
         <!--<button type="button" class="btn btn-default" data-dismiss="modal" (click)="display=false">Cancelar</button>
         <button type="button" class="btn btn-primary" (click)="confirmMovement()">Aceptar</button>-->
-        <button type="button" pButton icon="fa-close" (click)="displayConfirmation=false; this.selectedEquip = null;" label="Cancelar"></button>
+        <button type="button" pButton icon="fa-close" (click)="deselectEquip()" label="Cancelar"></button>
         <button type="button" pButton icon="fa-check" (click)="confirmEquip()" label="Aceptar"></button>        
     </footer>
 </p-dialog>

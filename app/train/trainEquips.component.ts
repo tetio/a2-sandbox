@@ -49,6 +49,11 @@ export class TrainEquipsComponent implements OnInit {
         this.selectedEquip = equip;
         this.displayConfirmation = true;   
     }
+
+    deselectEquip() {
+        this.selectedEquip = null;
+        this.displayConfirmation = false;   
+    }
     
     public confirmEquip():void{
         // TODO
