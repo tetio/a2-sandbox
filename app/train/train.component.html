@@ -1,19 +1,21 @@
-<div class="searchTruck">
-    <div class="contenIconSearch">
-        <img src="app/resources/img/IconSearch.png"class="imgSearch" (click)="search()">
+<div class="searchTrain">
+    
+    <div style="float:left; width: 47%">
+        <div class="contentInputSearchType trainService">
+            <p-dropdown [options]="trainServices" [(ngModel)]="selectedTrainService"></p-dropdown>
+        </div>
+        <div class="contentInputDate">
+            <p-calendar [(ngModel)]="fechaOficialSalida" placeholder="dd/mm/aaaa" onfocus="this.placeholder = ''" onblur="this.placeholder = 'dd/mm/aaaa'" [locale]="es"></p-calendar>
+        </div>        
     </div>
-
-    <div class="contentInputSearchContainer"> 
-
-        <p-calendar [(ngModel)]="fechaOficialSalida" placeholder="dd/mm/aaaa" onfocus="this.placeholder = ''" onblur="this.placeholder = 'dd/mm/aaaa'" [locale]="es"></p-calendar>
-
-    </div>
-    <div class="contentInputSearchType">
-        <p-dropdown [options]="trainServices" [(ngModel)]="selectedTrainService"></p-dropdown>
-    </div>
-    <div class="contentInputSearchType">
-        <p-dropdown [options]="operaciones" [(ngModel)]="selectedOperacion"></p-dropdown>
-    </div>
+     <div style="float:right; width: 47%">
+        <div class="contentInputSearchType opera">
+            <p-dropdown [options]="operaciones" [(ngModel)]="selectedOperacion"></p-dropdown>
+        </div>
+        <div class="contenIconSearch">
+            <img src="app/resources/img/IconSearch.png"class="imgSearch" (click)="search()">
+        </div>
+        </div>
 </div>
  
 <div class="paddingTop"  *ngIf="trains && trains.length > 0">

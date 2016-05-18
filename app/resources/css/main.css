@@ -99,7 +99,7 @@
 	height: 39px;
 }
 
-.searchTruck{
+.searchTruck, .searchTrain{
 	padding: 15px;
 	margin-top: 55px;
 	width: 100%;
@@ -114,6 +114,11 @@ background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 
 background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
 background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );
+}
+
+.searchTrain{
+padding: 2px 15px;
+height: 65px;	
 }
 
 .paddingTop{
@@ -144,18 +149,30 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 	width: 80%;
 }
 
-.contentInputSearchContainer{
+.contentInputSearchContainer, .contentInputDate{
 	width: 45%;
     display: inline-block;
     text-align: left;
     float:left;
 }
 
-.contentInputSearchType{
+.contentInputDate{
+	width: 90%;
+}
+
+.contentInputSearchType, .opera, .trainService {
     width: 38%;
     display: inline-block;
     text-align: right;
     float:right;
+}
+
+.trainService, .opera{
+	width: 93%;
+}
+
+.trainService{
+	float: left;
 }
 
 .contentInputSearchType .ui-corner-all{
@@ -297,6 +314,11 @@ label{
 .contentInputSearchType .ui-dropdown{
 	width:80px!important;
 }
+
+.trainService .ui-dropdown{
+	width: 80%!important;
+}
+
 
 .section .ui-widget-header{
 	background: #197c7f;

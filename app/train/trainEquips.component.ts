@@ -16,12 +16,14 @@ import {Button, Dialog, SelectItem, Dropdown, Calendar} from 'primeng/primeng';
 export class TrainEquipsComponent implements OnInit {
     trainEquips: ITrainEquip[];
     errorMessage: string;
+  
+    displayConfirmation: boolean=false;
     constructor(private _trainService: TrainService,
         private _securityService: SecurityService,
         private _router: Router) { }
 
     ngOnInit(): void {
-        var payload = new Payload<string>();
+       var payload = new Payload<string>();
         payload["usuariSessio"] = this._securityService.session.usuari;
         payload["nifSessio"] = this._securityService.session.nif;
         payload["paisSessio"] = this._securityService.session.pais;
@@ -35,6 +37,9 @@ export class TrainEquipsComponent implements OnInit {
                 this.trainEquips = trainEquipsResponse.lista;
             },
             error => this.errorMessage = <any>error);        
+    }
+    public modificarDisplay():void{
+        this.displayConfirmation = true;
     }
     
     goBack() {
