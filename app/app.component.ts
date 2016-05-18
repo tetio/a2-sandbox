@@ -5,13 +5,9 @@ import { ROUTER_PROVIDERS, RouteConfig, ROUTER_DIRECTIVES } from 'angular2/route
 
 import {InputText,DataTable,Button,Dialog,Column,Header,Footer} from 'primeng/primeng';
 
-import { ProductListComponent } from './products/product-list.component';
-import { ProductService } from './products/product.service';
 import { LorryService } from './lorry/lorry.service';
 import { TrainService } from './train/train.service';
 import { SecurityService } from './security/security.service';
-import { WelcomeComponent } from './home/welcome.component';
-import { ProductDetailComponent } from './products/product-detail.component';
 import { LorryComponent } from './lorry/lorry.component';
 import { TrainComponent } from './train/train.component';
 import { Payload } from './payload/payload';
