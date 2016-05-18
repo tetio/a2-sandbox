@@ -3,11 +3,12 @@ import { HTTP_PROVIDERS } from 'angular2/http';
 import 'rxjs/Rx';   // Load all features
 import { ROUTER_PROVIDERS, RouteConfig, ROUTER_DIRECTIVES } from 'angular2/router';
 
-import {InputText,DataTable,Button,Dialog,Column,Header,Footer} from 'primeng/primeng';
+import {InputText, DataTable, Button, Dialog, Column, Header, Footer} from 'primeng/primeng';
 
 import { LorryService } from './lorry/lorry.service';
 import { TrainService } from './train/train.service';
 import { SecurityService } from './security/security.service';
+import { LocationService } from './location/location.service';
 import { LorryComponent } from './lorry/lorry.component';
 import { TrainComponent } from './train/train.component';
 import { Payload } from './payload/payload';
@@ -17,7 +18,7 @@ import { TrainEquipsComponent } from './train/trainEquips.component';
 import {Menu} from 'primeng/primeng';
 import {Accordion} from 'primeng/primeng';
 import {AccordionTab} from 'primeng/primeng';
-import {Draggable,Droppable} from 'primeng/primeng';
+import {Draggable, Droppable} from 'primeng/primeng';
 import {Lightbox} from 'primeng/primeng';
 import {Growl} from 'primeng/primeng';
 import {Dropdown} from 'primeng/primeng';
@@ -27,10 +28,11 @@ import {Dropdown} from 'primeng/primeng';
     selector: 'my-app',
     templateUrl: 'app/app.component.html',
     directives: [ROUTER_DIRECTIVES,
-	Menu,InputText,DataTable,Button,Dialog,Column,Header,Footer,Accordion,AccordionTab,Draggable,Droppable,Lightbox,Growl,Dropdown],
+		Menu, InputText, DataTable, Button, Dialog, Column, Header, Footer, Accordion, AccordionTab, Draggable, Droppable, Lightbox, Growl, Dropdown],
     providers: [LorryService,
 		TrainService,
 		SecurityService,
+		LocationService,
         HTTP_PROVIDERS,
         ROUTER_PROVIDERS]
 })
@@ -51,9 +53,9 @@ export class AppComponent {
 	username: string = "NESTA";
 	password: string = "CALL";
 	errorMessage: string;
-	
-	
-	constructor(private _securityService: SecurityService) {}
+
+
+	constructor(private _securityService: SecurityService, private _locationService: LocationService) { }
 
 	isLoggedIn(): boolean {
 		return this.loggedIn;
@@ -64,7 +66,7 @@ export class AppComponent {
 	isTrainMode() {
 		return this.trainMode;
 	}
-	
+
 	setLorryMode() {
 		this.lorryMode = true;
 		this.trainMode = false;
@@ -72,24 +74,37 @@ export class AppComponent {
 	setTrainMode() {
 		this.lorryMode = false;
 		this.trainMode = true;
-	}	
-	
+	}
+
 	login() {
 		var payload = new Payload<string>();
         payload["username"] = this.username;
         payload["password"] = this.password;
 		this._securityService.login(payload)
 			.subscribe(
-		// TODO: Check with secutity service
-				session => {
-					if (session.codiError >= 0 && session.token) {
-						this.loggedIn = true;
-						this._securityService.session = session;
-					} else {
-						// TODO avisar que no s'ha autenticat correctament
-					}
-				},
-				error => this.errorMessage = error
+			// TODO: Check with secutity service
+			session => {
+				if (session.codiError >= 0 && session.token) {
+					this.loggedIn = true;
+					this._securityService.session = session;
+					this.loadMasterData();
+				} else {
+					// TODO avisar que no s'ha autenticat correctament
+				}
+			},
+			error => this.errorMessage = error
 			);
+	}
+
+	loadMasterData() {
+       var payload = new Payload<string>();
+        payload["usuariSessio"] = this._securityService.session.usuari;
+        payload["nifSessio"] = this._securityService.session.nif;
+        payload["paisSessio"] = this._securityService.session.pais;
+        payload["token"] = this._securityService.session.token;
+        this._locationService.getLocations(payload)
+            .subscribe(
+            locationsResponse => this._locationService.locations = locationsResponse.lista,
+            error => this.errorMessage = <any>error); 
 	}
 }

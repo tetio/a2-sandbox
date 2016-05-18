@@ -5,22 +5,20 @@ import {Observable} from 'rxjs/Observable';
 import { Config } from "../config/config"
 import { Payload } from '../payload/payload';
 import { Service } from '../payload/service';
-import {ILocation} from './location.ts'
+import { ILocation, ILocationsResponse } from './location.ts'
 
 @Injectable()
 export class LocationService extends Service {
     private _LocationServicesUrl = Config.getEnvironmentVariable('endPoint') + '/webTermint/api/ubicacion';
-
-    locations: ILocation[];
-    selectedLocation: ILocation;
+    locations: ILocation[] = [];
 
     constructor(_http: Http) {
         super(_http);
     }
 
-    getLocations(payload) : Observable<ILocation[]> {
+    getLocations(payload) : Observable<ILocationsResponse> {
         return this._http.post(this._LocationServicesUrl, JSON.stringify(payload))
-            .map((response: Response) => <ILocation[]>response.json())
+            .map((response: Response) => <ILocationsResponse>response.json())
             .catch(this.handleError)
     }
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from 'angular2/core';
 import { Router} from 'angular2/router';
 import { ITrainEquip, ITrain} from './train';
 import {TrainService} from './train.service';
+import { LocationService } from '../location/location.service';
 import { SecurityService } from '../security/security.service';
 import { Payload } from '../payload/payload';
 import { Button, Dialog, SelectItem, Dropdown, Calendar } from 'primeng/primeng';
@@ -20,7 +21,8 @@ export class TrainEquipsComponent implements OnInit {
   
     displayConfirmation: boolean=false;
   
-    constructor(private _trainService: TrainService,
+    constructor(private _locationService: LocationService,
+        private _trainService: TrainService,
         private _securityService: SecurityService,
         private _router: Router) { }
 
