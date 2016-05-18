@@ -18,6 +18,7 @@ export class TrainEquipsComponent implements OnInit {
     errorMessage: string;
   
     displayConfirmation: boolean=false;
+  
     constructor(private _trainService: TrainService,
         private _securityService: SecurityService,
         private _router: Router) { }
@@ -47,5 +48,8 @@ export class TrainEquipsComponent implements OnInit {
     }
     
     confirmEquip(equip) {    
+    }
+    public modificarDisplay():void{
+        this.displayConfirmation = true;
     }
 }
