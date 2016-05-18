@@ -16,6 +16,7 @@ import { Button, Dialog, SelectItem, Dropdown, Calendar } from 'primeng/primeng'
 export class TrainEquipsComponent implements OnInit {
     trainEquips: ITrainEquip[];
     errorMessage: string;
+    selectedEquip: ITrainEquip;
   
     displayConfirmation: boolean=false;
   
@@ -39,17 +40,17 @@ export class TrainEquipsComponent implements OnInit {
             },
             error => this.errorMessage = <any>error);        
     }
-    public modificarDisplay():void{
-        this.displayConfirmation = true;
-    }
     
     goBack() {
         this._router.navigate(['Train']);
     }
     
-    confirmEquip(equip) {    
+    selectEquip(equip) {
+        this.selectedEquip = equip;
+        this.displayConfirmation = true;   
     }
-    public modificarDisplay():void{
-        this.displayConfirmation = true;
+    
+    public confirmEquip():void{
+        // TODO
     }
 }

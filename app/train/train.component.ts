@@ -1,6 +1,6 @@
 import { Component, OnInit } from 'angular2/core';
 import { Router } from 'angular2/router';
-import { ITrainService, ITrain} from './train';
+import {ITrainQueryResponse, ITrainService, ITrain} from './train';
 import { TrainService } from './train.service';
 
 import { SecurityService } from '../security/security.service';

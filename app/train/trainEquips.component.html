@@ -23,7 +23,7 @@
             </div>
             
             <div class="contentBtnTrainPlus">
-                <button class="btnFinalizar" (click)="confirmEquip(equip)">F</button>
+                <button class="btnFinalizar" (click)="selectEquip(equip)">F</button>
             </div>
      </div>
 </div>
@@ -36,8 +36,8 @@
     <footer>
         <!--<button type="button" class="btn btn-default" data-dismiss="modal" (click)="display=false">Cancelar</button>
         <button type="button" class="btn btn-primary" (click)="confirmMovement()">Aceptar</button>-->
-        <button type="button" pButton icon="fa-close" (click)="displayConfirmation=false" label="Cancelar"></button>
-        <button type="button" pButton icon="fa-check" (click)="confirmMovement()" label="Aceptar"></button>        
+        <button type="button" pButton icon="fa-close" (click)="displayConfirmation=false; this.selectedEquip = null;" label="Cancelar"></button>
+        <button type="button" pButton icon="fa-check" (click)="confirmEquip()" label="Aceptar"></button>        
     </footer>
 </p-dialog>
 

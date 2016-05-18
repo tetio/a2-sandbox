@@ -39,7 +39,7 @@ export interface ITrainServicesResponse extends TermintResult {
 }
 
 export interface ITrainQueryResponse extends TermintResult {
-    trains: ITrain[];
+    lista: ITrain[];
 }
 
 export interface ITrainEquipsResponse extends TermintResult {

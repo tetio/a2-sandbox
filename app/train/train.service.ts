@@ -5,7 +5,7 @@ import {Observable} from 'rxjs/Observable';
 import { Config } from "../config/config"
 import { Payload } from '../payload/payload';
 import { Service } from '../payload/service';
-import {ITrainServicesResponse, ITrain, ITrainEquipsResponse} from './train'
+import { ITrainQueryResponse, ITrainServicesResponse, ITrain, ITrainEquipsResponse} from './train'
 
 @Injectable()
 export class TrainService extends Service {
@@ -28,7 +28,7 @@ export class TrainService extends Service {
             .catch(this.handleError)
     }
 
-    getTrains(payload) : Observable<ITrain[]> {
+    getTrains(payload) : Observable<ITrainQueryResponse> {
         return this._http.post(this._trainsUrl, JSON.stringify(payload))
             .map((response: Response) => <ITrain[]>response.json())
             .catch(this.handleError)
