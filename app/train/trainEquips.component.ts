@@ -4,7 +4,7 @@ import { ITrainEquip, ITrain} from './train';
 import {TrainService} from './train.service';
 import { SecurityService } from '../security/security.service';
 import { Payload } from '../payload/payload';
-import {Button, Dialog, SelectItem, Dropdown, Calendar} from 'primeng/primeng';
+import { Button, Dialog, SelectItem, Dropdown, Calendar } from 'primeng/primeng';
 
 
 @Component({

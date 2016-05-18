@@ -1,26 +1,24 @@
 <!-- INICIO SEGUNDA VENTANA TREN -->
-
 <div class="searchTruck paddingSearchTrain">
-    
         <img src="app/resources/img/arrow.png" class="imgArrow" (click)="goBack()">
     
         <p class="infoSelectedTrainItemLeft">{{_trainService.selectedTrain.servicio}}</p>
-        <p class="infoSelectedTrainItemRight">-</p>
+        <p class="infoSelectedTrainItemRight">{{ _trainService.selectedTrain.frl | date:'d'}}/{{ _trainService.selectedTrain.frl | date:'MM'}}/{{ _trainService.selectedTrain.frl | date:'y'}} {{ _trainService.selectedTrain.frl | date:'HH:mm'}}</p>
         <p class="infoSelectedTrainItemLeft">{{ _trainService.selectedTrain.fos | date:'d'}}/{{ _trainService.selectedTrain.fos | date:'MM'}}/{{ _trainService.selectedTrain.fos | date:'y'}}</p>
         <p class="infoSelectedTrainItemRight">{{_trainService.selectedTrain.operacion}}</p>
-        
-    
 </div>
  
 <div class="paddingTop" *ngIf="trainEquips && trainEquips.length > 0">
     <div class="itemsListSearchTrain" *ngFor="let equip of trainEquips"> 
             <div class="contentContenedorTruck">
                 <p class="descrptionSearchTrain"> {{equip.matricula}} <span class="tipeContainer">{{equip.tipo}}</span></p>
-                <p class="descrptionSearch">{{equip.numAutorizacion}}</p>
+                <p class="descrptionSearch" *ngIf="equip.numAutorizacion">{{equip.numAutorizacion}}</p>
+                <p class="descrptionSearch" *ngIf="!equip.numAutorizacion">-</p>
             </div>
 
             <div class="contentContenedorType">
-                <p>{{_trainService.selectedTrain.operacion}}</p>
+                <p *ngIf="_trainService.selectedTrain.operacion.toUpperCase() === 'DESCARGA'">{{_trainService.selectedTrain.ubicacionEplanada}}</p>
+                <p *ngIf="_trainService.selectedTrain.operacion.toUpperCase() === 'CARGA'">{{_trainService.selectedTrain.ubicaionTren}}</p>
                 <p>{{equip.llenoVacio}}</p>
             </div>
             

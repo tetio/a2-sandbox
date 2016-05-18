@@ -102,13 +102,16 @@ export class TrainComponent implements OnInit {
         this._trainService.getTrains(payload)
             .subscribe(
             trainsResponse => {this.trains = trainsResponse.lista.map((train: ITrain) => {
-                    return {
+                    let result = {
                         servicio: train.servicio,
                         fechaOficialSalida: train.fechaOficialSalida,
                         fechaRealLlegada: train.fechaRealLlegada,
                         idTren: train.idTren,
                         operacion: train.operacion,
-                        fos: new Date(train.fechaOficialSalida)
+                        fos: new Date(train.fechaOficialSalida),
+                        frl: new Date(train.fechaRealLlegada)
+                    };
+                    return result;
                 });
             },
             error => this.errorMessage = <any>error);

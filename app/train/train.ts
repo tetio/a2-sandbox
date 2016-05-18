@@ -6,7 +6,8 @@ export interface ITrain {
     fechaRealLlegada: string,
     idTren: string,
     operacion: string,
-    fos: Date
+    fos: Date,
+    frl: Date
 }
 
 export class ITrainService {
