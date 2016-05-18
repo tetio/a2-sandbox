@@ -31,8 +31,15 @@
 <p-dialog header="Confirmación" data-icon="fa-plus" [(visible)]="displayConfirmation" modal="modal" showEffect="fade">
     
         <p></p>
-        <input type="text"  placeholder="Ubicacion" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ubicacion'"/>
-    
+        <div>
+            <input type="text" class="trainConfirmEquipPosVagon"  placeholder="Posición" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ubicacion'"/>
+            <input type="text" class="trainConfirmEquipPosVagon"  placeholder="Vagón" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Vagón'"/>
+            <input type="text" class="trainConfirmEquipPosVagon"  placeholder="Zona" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Zona'"/>
+        </div>
+        <div>
+            <p-dropdown class="trainConfirmEquipUbi" [options]="_locationService.location" [(ngModel)]="selectedLocation"></p-dropdown>
+            <input type="text" class="trainConfirmEquipUbi"  placeholder="Ubicación" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ubicación'"/>
+        </div>
     <footer>
         <!--<button type="button" class="btn btn-default" data-dismiss="modal" (click)="display=false">Cancelar</button>
         <button type="button" class="btn btn-primary" (click)="confirmMovement()">Aceptar</button>-->

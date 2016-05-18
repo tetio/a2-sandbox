@@ -1,7 +1,8 @@
 import { Component, OnInit } from 'angular2/core';
 import { Router} from 'angular2/router';
 import { ITrainEquip, ITrain} from './train';
-import {TrainService} from './train.service';
+//import { ILocation } from '../location/location';
+import { TrainService } from './train.service';
 import { LocationService } from '../location/location.service';
 import { SecurityService } from '../security/security.service';
 import { Payload } from '../payload/payload';
@@ -18,6 +19,7 @@ export class TrainEquipsComponent implements OnInit {
     trainEquips: ITrainEquip[];
     errorMessage: string;
     selectedEquip: ITrainEquip;
+    selectedLocation: string = "";
   
     displayConfirmation: boolean=false;
   

@@ -372,8 +372,6 @@ div.ui-dropdown .ui-state-default{
 	color:#fff;
 }
 
-
-
 .ui-menuitem-icon{
 	margin-right: 20px;
 	
@@ -381,4 +379,23 @@ div.ui-dropdown .ui-state-default{
 
 .ui-menuitem-icon:before{
 	width: 50px;
+}
+
+.trainConfirmEquipPosVagon{
+	display: inline-block;
+	width: 25% !important;
+	margin-right: 15px;	
+}
+.trainConfirmEquipPosVagon:last-child{
+	margin-right:0;
+}
+
+.trainConfirmEquipUbi{
+	width: 50% !important;
+	display: inline-block;
+	margin-right: 25px;
+}
+
+.trainConfirmEquipUbi:last-child{
+	margin-right:0;
 }
