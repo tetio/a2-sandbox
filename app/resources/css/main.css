@@ -163,12 +163,17 @@ height: 65px;
 .contentInputSearchType, .opera, .trainService {
     width: 38%;
     display: inline-block;
-    text-align: right;
+    text-align: left;
     float:right;
 }
 
 .trainService, .opera{
-	width: 93%;
+	width: 93%;	
+}
+
+.opera{
+	text-align: right;
+	
 }
 
 .trainService{
@@ -199,8 +204,8 @@ height: 65px;
 
 
 
-.itemsListSearchTruck:last-child{
-	border-bottom:1px solid #999998;
+.itemsListSearchTruck:last-child, .itemsListSearchTrain:last-child{
+	border-bottom:1px solid #197c7f;
 }
 
 .contentBtnTruck{
@@ -384,18 +389,64 @@ div.ui-dropdown .ui-state-default{
 .trainConfirmEquipPosVagon{
 	display: inline-block;
 	width: 25% !important;
-	margin-right: 15px;	
+	margin-right: 15px;
+	margin-top:20px;
 }
 .trainConfirmEquipPosVagon:last-child{
 	margin-right:0;
 }
 
 .trainConfirmEquipUbi{
-	width: 50% !important;
+	width: 40% !important;
 	display: inline-block;
-	margin-right: 25px;
+	margin-right: 35px;
+	margin-top:20px;
 }
 
 .trainConfirmEquipUbi:last-child{
 	margin-right:0;
+}
+
+.trainSearchLeft{
+	float:left; 
+	width: 47%; 
+	max-width: 211px;	
+}
+
+.trainSearchRight{
+	float:right; 
+	width: 47%; 
+	max-width: 211px;	
+}
+
+.ui-dropdown{
+	
+}
+
+@media screen and (min-width: 540px) {
+	.trainSearchLeft, .trainSearchRight{
+	 width: auto;
+	 max-width: none;
+	 padding-top: 18px;
+	}
+	
+	.trainService, .contentInputDate{
+		float: left;
+		width: 47%;
+	}
+	
+	.opera{
+		float: left;
+		width: auto;
+		margin-right: 15px;	
+	}
+	
+	.iconSerchFloat{
+		float:right;
+	}
+	
+	.trainService{
+		margin-right: 10px;
+	}
+
 }

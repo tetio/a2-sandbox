@@ -1,6 +1,6 @@
 <div class="searchTrain">
     
-    <div style="float:left; width: 47%">
+    <div class="trainSearchLeft">
         <div class="contentInputSearchType trainService">
             <p-dropdown [options]="trainServices" [(ngModel)]="selectedTrainService"></p-dropdown>
         </div>
@@ -8,11 +8,11 @@
             <p-calendar [(ngModel)]="fechaOficialSalida" placeholder="dd/mm/aaaa" onfocus="this.placeholder = ''" onblur="this.placeholder = 'dd/mm/aaaa'" [locale]="es"></p-calendar>
         </div>        
     </div>
-     <div style="float:right; width: 47%">
+     <div class="trainSearchRight">
         <div class="contentInputSearchType opera">
             <p-dropdown [options]="operaciones" [(ngModel)]="selectedOperacion"></p-dropdown>
         </div>
-        <div class="contenIconSearch">
+        <div class="contenIconSearch iconSerchFloat">
             <img src="app/resources/img/IconSearch.png"class="imgSearch" (click)="search()">
         </div>
         </div>
