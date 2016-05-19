@@ -1,7 +1,7 @@
 import { Component, OnInit } from 'angular2/core';
 import { Router} from 'angular2/router';
 import { ITrainEquip, ITrain} from './train';
-//import { ILocation } from '../location/location';
+import { ILocation } from '../location/location';
 import { TrainService } from './train.service';
 import { LocationService } from '../location/location.service';
 import { SecurityService } from '../security/security.service';
@@ -20,16 +20,19 @@ export class TrainEquipsComponent implements OnInit {
     errorMessage: string;
     selectedEquip: ITrainEquip;
     selectedLocation: string = "";
-  
-    displayConfirmation: boolean=false;
-  
+    locations: ILocation[];
+    displayConfirmation: boolean = false;
+
     constructor(private _locationService: LocationService,
         private _trainService: TrainService,
         private _securityService: SecurityService,
         private _router: Router) { }
 
     ngOnInit(): void {
-       var payload = new Payload<string>();
+        this.locations = this._locationService.locations;
+        console.log(`location0 = [${this.locations[0].value}]`);
+        console.log(`how many locations = [${this._locationService.locations.length}]`);
+        var payload = new Payload<string>();
         payload["usuariSessio"] = this._securityService.session.usuari;
         payload["nifSessio"] = this._securityService.session.nif;
         payload["paisSessio"] = this._securityService.session.pais;
@@ -42,24 +45,24 @@ export class TrainEquipsComponent implements OnInit {
                 // Check de seguretat;
                 this.trainEquips = trainEquipsResponse.lista;
             },
-            error => this.errorMessage = <any>error);        
+            error => this.errorMessage = <any>error);
     }
-    
+
     goBack() {
         this._router.navigate(['Train']);
     }
-    
+
     selectEquip(equip) {
         this.selectedEquip = equip;
-        this.displayConfirmation = true;   
+        this.displayConfirmation = true;
     }
 
     deselectEquip() {
         this.selectedEquip = null;
-        this.displayConfirmation = false;   
+        this.displayConfirmation = false;
     }
-    
-    public confirmEquip():void{
+
+    public confirmEquip(): void {
         // TODO
     }
 }

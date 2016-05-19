@@ -1,7 +1,7 @@
 <!-- INICIO SEGUNDA VENTANA TREN -->
 <div class="searchTruck paddingSearchTrain">
         <img src="app/resources/img/arrow.png" class="imgArrow" (click)="goBack()">
-    
+
         <p class="infoSelectedTrainItemLeft">{{_trainService.selectedTrain.servicio}}</p>
         <p class="infoSelectedTrainItemRight">{{ _trainService.selectedTrain.frl | date:'d'}}/{{ _trainService.selectedTrain.frl | date:'MM'}}/{{ _trainService.selectedTrain.frl | date:'y'}} {{ _trainService.selectedTrain.frl | date:'HH:mm'}}</p>
         <p class="infoSelectedTrainItemLeft">{{ _trainService.selectedTrain.fos | date:'d'}}/{{ _trainService.selectedTrain.fos | date:'MM'}}/{{ _trainService.selectedTrain.fos | date:'y'}}</p>
@@ -37,7 +37,7 @@
             <input type="text" class="trainConfirmEquipPosVagon"  placeholder="Zona" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Zona'"/>
         </div>
         <div>
-            <p-dropdown class="trainConfirmEquipUbi" [options]="_locationService.location" [(ngModel)]="selectedLocation"></p-dropdown>
+            <p-dropdown class="trainConfirmEquipUbi" [options]="_locationService.locations" [(ngModel)]="selectedLocation"></p-dropdown>
             <input type="text" class="trainConfirmEquipUbi"  placeholder="Ubicación" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ubicación'"/>
         </div>
     <footer>
