@@ -36,16 +36,26 @@
             <input type="text" class="trainConfirmEquipPosVagon"  placeholder="Vagón" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Vagón'"/>
             <input type="text" class="trainConfirmEquipPosVagon"  placeholder="Zona" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Zona'"/>
         </div>
-        <div>
-            <p-dropdown class="trainConfirmEquipUbi" [options]="_locationService.locations" [(ngModel)]="selectedLocation"></p-dropdown>
-            <input type="text" class="trainConfirmEquipUbi"  placeholder="Ubicación" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ubicación'"/>
+        <div class="comntentTrainConfirmEquipUbi">
+            <!--<p-dropdown class="trainConfirmEquipUbi" [options]="_locationService.locations" [(ngModel)]="selectedLocation" scrollHeight="65px"></p-dropdown>-->
+            <select class="trainConfirmEquipUbi"> 
+            <option value="0000">00:00</option>
+            <option value="0030">00:30</option>
+            <option value="0100">01:00</option>
+            <option value="0130">01:30</option>
+            <option value="0200">02:00</option>
+            <option value="0230">02:30</option>
+            <option value="0300">03:00</option>
+          </select>
+            <input type="text" class="trainConfirmEquipUbi"  placeholder="Ubicación" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ubicación'"/>            
         </div>
-    <footer>
+        <div class="contentButtons">
         <!--<button type="button" class="btn btn-default" data-dismiss="modal" (click)="display=false">Cancelar</button>
         <button type="button" class="btn btn-primary" (click)="confirmMovement()">Aceptar</button>-->
         <button type="button" pButton icon="fa-close" (click)="deselectEquip()" label="Cancelar"></button>
-        <button type="button" pButton icon="fa-check" (click)="confirmEquip()" label="Aceptar"></button>        
-    </footer>
+        <button type="button" pButton icon="fa-check" (click)="confirmEquip()" label="Aceptar"></button>
+        </div>        
+    
 </p-dialog>
 
 <!--FIN SEGUNDA VENTANA TREN -->
