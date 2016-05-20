@@ -1,61 +1,63 @@
 <!-- INICIO SEGUNDA VENTANA TREN -->
 <div class="searchTruck paddingSearchTrain">
-        <img src="app/resources/img/arrow.png" class="imgArrow" (click)="goBack()">
+    <img src="app/resources/img/arrow.png" class="imgArrow" (click)="goBack()">
 
-        <p class="infoSelectedTrainItemLeft">{{_trainService.selectedTrain.servicio}}</p>
-        <p class="infoSelectedTrainItemRight">{{ _trainService.selectedTrain.frl | date:'d'}}/{{ _trainService.selectedTrain.frl | date:'MM'}}/{{ _trainService.selectedTrain.frl | date:'y'}} {{ _trainService.selectedTrain.frl | date:'HH:mm'}}</p>
-        <p class="infoSelectedTrainItemLeft">{{ _trainService.selectedTrain.fos | date:'d'}}/{{ _trainService.selectedTrain.fos | date:'MM'}}/{{ _trainService.selectedTrain.fos | date:'y'}}</p>
-        <p class="infoSelectedTrainItemRight">{{_trainService.selectedTrain.operacion}}</p>
+    <p class="infoSelectedTrainItemLeft">{{_trainService.selectedTrain.servicio}}</p>
+    <p class="infoSelectedTrainItemRight">{{ _trainService.selectedTrain.frl | date:'d'}}/{{ _trainService.selectedTrain.frl | date:'MM'}}/{{ _trainService.selectedTrain.frl
+        | date:'y'}} {{ _trainService.selectedTrain.frl | date:'HH:mm'}}</p>
+    <p class="infoSelectedTrainItemLeft">{{ _trainService.selectedTrain.fos | date:'d'}}/{{ _trainService.selectedTrain.fos | date:'MM'}}/{{ _trainService.selectedTrain.fos
+        | date:'y'}}</p>
+    <p class="infoSelectedTrainItemRight">{{_trainService.selectedTrain.operacion}}</p>
 </div>
- 
-<div class="paddingTop" *ngIf="trainEquips && trainEquips.length > 0">
-    <div class="itemsListSearchTrain" *ngFor="let equip of trainEquips"> 
-            <div class="contentContenedorTruck">
-                <p class="descrptionSearchTrain"> {{equip.matricula}} <span class="tipeContainer">{{equip.tipo}}</span></p>
-                <p class="descrptionSearch" *ngIf="equip.numAutorizacion">{{equip.numAutorizacion}}</p>
-                <p class="descrptionSearch" *ngIf="!equip.numAutorizacion">-</p>
-            </div>
 
-            <div class="contentContenedorType">
-                <p *ngIf="_trainService.selectedTrain.operacion.toUpperCase() === 'DESCARGA'">{{_trainService.selectedTrain.ubicacionEplanada}}</p>
-                <p *ngIf="_trainService.selectedTrain.operacion.toUpperCase() === 'CARGA'">{{_trainService.selectedTrain.ubicaionTren}}</p>
-                <p>{{equip.llenoVacio}}</p>
-            </div>
-            
-            <div class="contentBtnTrainPlus">
-                <button class="btnFinalizar" (click)="selectEquip(equip)">F</button>
-            </div>
-     </div>
+<div class="paddingTop" *ngIf="trainEquips && trainEquips.length > 0">
+    <div class="itemsListSearchTrain" *ngFor="let equip of trainEquips">
+        <div class="contentContenedorTruck">
+            <p class="descrptionSearchTrain"> {{equip.matricula}} <span class="tipeContainer">{{equip.tipo}}</span></p>
+            <p class="descrptionSearch" *ngIf="equip.numAutorizacion">{{equip.numAutorizacion}}</p>
+            <p class="descrptionSearch" *ngIf="!equip.numAutorizacion">-</p>
+        </div>
+
+        <div class="contentContenedorType">
+            <p *ngIf="_trainService.selectedTrain.operacion.toUpperCase() === 'DESCARGA'">{{_trainService.selectedTrain.ubicacionEplanada}}</p>
+            <p *ngIf="_trainService.selectedTrain.operacion.toUpperCase() === 'CARGA'">{{_trainService.selectedTrain.ubicaionTren}}</p>
+            <p>{{equip.llenoVacio}}</p>
+        </div>
+
+        <div class="contentBtnTrainPlus">
+            <button class="btnFinalizar" (click)="selectEquip(equip)">F</button>
+        </div>
+    </div>
 </div>
 
 <p-dialog header="Confirmación" data-icon="fa-plus" [(visible)]="displayConfirmation" modal="modal" showEffect="fade">
-    
-        <p></p>
-        <div>
-            <input type="text" class="trainConfirmEquipPosVagon"  placeholder="Posición" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ubicacion'"/>
-            <input type="text" class="trainConfirmEquipPosVagon"  placeholder="Vagón" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Vagón'"/>
-            <input type="text" class="trainConfirmEquipPosVagon"  placeholder="Zona" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Zona'"/>
-        </div>
-        <div class="comntentTrainConfirmEquipUbi">
-            <!--<p-dropdown class="trainConfirmEquipUbi" [options]="_locationService.locations" [(ngModel)]="selectedLocation" scrollHeight="65px"></p-dropdown>-->
-            <select class="trainConfirmEquipUbi"> 
-            <option value="0000">00:00</option>
-            <option value="0030">00:30</option>
-            <option value="0100">01:00</option>
-            <option value="0130">01:30</option>
-            <option value="0200">02:00</option>
-            <option value="0230">02:30</option>
-            <option value="0300">03:00</option>
-          </select>
-            <input type="text" class="trainConfirmEquipUbi"  placeholder="Ubicación" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ubicación'"/>            
-        </div>
-        <div class="contentButtons">
+
+    <p></p>
+    <div>
+        <input type="text" class="trainConfirmEquipPosVagon" placeholder="Posición" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ubicacion'"
+        />
+        <input type="text" class="trainConfirmEquipPosVagon" placeholder="Vagón" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Vagón'"
+        />
+        <input type="text" class="trainConfirmEquipPosVagon" placeholder="Zona" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Zona'"
+        />
+    </div>
+    <div class="comntentTrainConfirmEquipUbi">
+        <!--<p-dropdown class="trainConfirmEquipUbi" [options]="_locationService.locations" [(ngModel)]="selectedLocation" scrollHeight="65px"></p-dropdown>-->
+
+        <!--<select [(ngModel)]="selectedLocation" (ngModelChange)="onLocationSelected()">-->
+        <select [(ngModel)]="selectedLocation">
+            <option *ngFor="let location of _locationService.locations" [value]="location.value">{{location.label}}</option>
+        </select>
+        <input type="text" class="trainConfirmEquipUbi" placeholder="Ubicación" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ubicación'"
+        />
+    </div>
+    <div class="contentButtons">
         <!--<button type="button" class="btn btn-default" data-dismiss="modal" (click)="display=false">Cancelar</button>
         <button type="button" class="btn btn-primary" (click)="confirmMovement()">Aceptar</button>-->
         <button type="button" pButton icon="fa-close" (click)="deselectEquip()" label="Cancelar"></button>
         <button type="button" pButton icon="fa-check" (click)="confirmEquip()" label="Aceptar"></button>
-        </div>        
-    
+    </div>
+
 </p-dialog>
 
 <!--FIN SEGUNDA VENTANA TREN -->

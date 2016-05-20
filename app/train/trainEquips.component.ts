@@ -48,6 +48,10 @@ export class TrainEquipsComponent implements OnInit {
             error => this.errorMessage = <any>error);
     }
 
+    onLocationSelected() {
+
+    }
+
     goBack() {
         this._router.navigate(['Train']);
     }
